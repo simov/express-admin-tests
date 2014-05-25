@@ -1,0 +1,1022 @@
+{
+    "mtm1": {
+        "slug": "mtm1",
+        "table": {
+            "name": "mtm1",
+            "pk": "id",
+            "verbose": "mtm1"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "name1",
+                "verbose": "name1",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(45)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": true
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "mtm2": {
+        "slug": "mtm2",
+        "table": {
+            "name": "mtm2",
+            "pk": "id",
+            "verbose": "mtm2"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "name1",
+                "verbose": "name1",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(45)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "name2",
+                "verbose": "name2",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": true
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "mto1": {
+        "slug": "mto1",
+        "table": {
+            "name": "mto1",
+            "pk": "id",
+            "verbose": "mto1"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "tbl_id",
+                "verbose": "tbl_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "otm1_id",
+                "verbose": "otm1_id",
+                "control": {
+                    "select": true
+                },
+                "oneToMany": {
+                    "table": "otm1",
+                    "pk": "id",
+                    "columns": [
+                        "name1"
+                    ]
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "otm2_id",
+                "verbose": "otm2_id",
+                "control": {
+                    "select": true
+                },
+                "oneToMany": {
+                    "table": "otm2",
+                    "pk": "id",
+                    "columns": [
+                        "name1",
+                        "name2"
+                    ]
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "verbose": "mtm1",
+                "name": "mtm1",
+                "control": {
+                    "select": true,
+                    "multiple": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                },
+                "manyToMany": {
+                    "link": {
+                        "table": "mto1_has_mtm1",
+                        "parentPk": "mto1_id",
+                        "childPk": "mtm1_id"
+                    },
+                    "ref": {
+                        "table": "mtm1",
+                        "pk": "id",
+                        "columns": [
+                            "name1"
+                        ]
+                    }
+                }
+            },
+            {
+                "verbose": "mtm2",
+                "name": "mtm2",
+                "control": {
+                    "select": true,
+                    "multiple": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                },
+                "manyToMany": {
+                    "link": {
+                        "table": "mto1_has_mtm2",
+                        "parentPk": "mto1_id",
+                        "childPk": "mtm2_id"
+                    },
+                    "ref": {
+                        "table": "mtm2",
+                        "pk": "id",
+                        "columns": [
+                            "name1",
+                            "name2"
+                        ]
+                    }
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "mto1_has_mtm1": {
+        "slug": "mto1_has_mtm1",
+        "table": {
+            "name": "mto1_has_mtm1",
+            "pk": "mto1_id",
+            "verbose": "mto1_has_mtm1"
+        },
+        "columns": [
+            {
+                "name": "mto1_id",
+                "verbose": "mto1_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "mtm1_id",
+                "verbose": "mtm1_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "mto1_has_mtm2": {
+        "slug": "mto1_has_mtm2",
+        "table": {
+            "name": "mto1_has_mtm2",
+            "pk": "mto1_id",
+            "verbose": "mto1_has_mtm2"
+        },
+        "columns": [
+            {
+                "name": "mto1_id",
+                "verbose": "mto1_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "mtm2_id",
+                "verbose": "mtm2_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "mto2": {
+        "slug": "mto2",
+        "table": {
+            "name": "mto2",
+            "pk": "id",
+            "verbose": "mto2"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "tbl_id",
+                "verbose": "tbl_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "otm1_id",
+                "verbose": "otm1_id",
+                "control": {
+                    "select": true
+                },
+                "oneToMany": {
+                    "table": "otm1",
+                    "pk": "id",
+                    "columns": [
+                        "name1"
+                    ]
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "otm2_id",
+                "verbose": "otm2_id",
+                "control": {
+                    "select": true
+                },
+                "oneToMany": {
+                    "table": "otm2",
+                    "pk": "id",
+                    "columns": [
+                        "name1",
+                        "name2"
+                    ]
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "verbose": "mtm1",
+                "name": "mtm1",
+                "control": {
+                    "select": true,
+                    "multiple": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                },
+                "manyToMany": {
+                    "link": {
+                        "table": "mto2_has_mtm1",
+                        "parentPk": "mto2_id",
+                        "childPk": "mtm1_id"
+                    },
+                    "ref": {
+                        "table": "mtm1",
+                        "pk": "id",
+                        "columns": [
+                            "name1"
+                        ]
+                    }
+                }
+            },
+            {
+                "verbose": "mtm2",
+                "name": "mtm2",
+                "control": {
+                    "select": true,
+                    "multiple": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                },
+                "manyToMany": {
+                    "link": {
+                        "table": "mto2_has_mtm2",
+                        "parentPk": "mto2_id",
+                        "childPk": "mtm2_id"
+                    },
+                    "ref": {
+                        "table": "mtm2",
+                        "pk": "id",
+                        "columns": [
+                            "name1",
+                            "name2"
+                        ]
+                    }
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "mto2_has_mtm1": {
+        "slug": "mto2_has_mtm1",
+        "table": {
+            "name": "mto2_has_mtm1",
+            "pk": "mto2_id",
+            "verbose": "mto2_has_mtm1"
+        },
+        "columns": [
+            {
+                "name": "mto2_id",
+                "verbose": "mto2_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "mtm1_id",
+                "verbose": "mtm1_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "mto2_has_mtm2": {
+        "slug": "mto2_has_mtm2",
+        "table": {
+            "name": "mto2_has_mtm2",
+            "pk": "mto2_id",
+            "verbose": "mto2_has_mtm2"
+        },
+        "columns": [
+            {
+                "name": "mto2_id",
+                "verbose": "mto2_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "mtm2_id",
+                "verbose": "mtm2_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "otm1": {
+        "slug": "otm1",
+        "table": {
+            "name": "otm1",
+            "pk": "id",
+            "verbose": "otm1"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "name1",
+                "verbose": "name1",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(45)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": true
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "otm2": {
+        "slug": "otm2",
+        "table": {
+            "name": "otm2",
+            "pk": "id",
+            "verbose": "otm2"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "name1",
+                "verbose": "name1",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(45)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "name2",
+                "verbose": "name2",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": true
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "tbl": {
+        "slug": "tbl",
+        "table": {
+            "name": "tbl",
+            "pk": "id",
+            "verbose": "tbl"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "otm1_id",
+                "verbose": "otm1_id",
+                "control": {
+                    "select": true
+                },
+                "oneToMany": {
+                    "table": "otm1",
+                    "pk": "id",
+                    "columns": [
+                        "name1"
+                    ]
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "otm2_id",
+                "verbose": "otm2_id",
+                "control": {
+                    "select": true
+                },
+                "oneToMany": {
+                    "table": "otm2",
+                    "pk": "id",
+                    "columns": [
+                        "name1",
+                        "name2"
+                    ]
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "verbose": "mtm1",
+                "name": "mtm1",
+                "control": {
+                    "select": true,
+                    "multiple": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                },
+                "manyToMany": {
+                    "link": {
+                        "table": "tbl_has_mtm1",
+                        "parentPk": "tbl_id",
+                        "childPk": "mtm1_id"
+                    },
+                    "ref": {
+                        "table": "mtm1",
+                        "pk": "id",
+                        "columns": [
+                            "name1"
+                        ]
+                    }
+                }
+            },
+            {
+                "verbose": "mtm2",
+                "name": "mtm2",
+                "control": {
+                    "select": true,
+                    "multiple": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                },
+                "manyToMany": {
+                    "link": {
+                        "table": "tbl_has_mtm2",
+                        "parentPk": "tbl_id",
+                        "childPk": "mtm2_id"
+                    },
+                    "ref": {
+                        "table": "mtm2",
+                        "pk": "id",
+                        "columns": [
+                            "name1",
+                            "name2"
+                        ]
+                    }
+                }
+            }
+        ],
+        "mainview": {
+            "show": true
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false,
+            "manyToOne": {
+                "mto1": "id",
+                "mto2": "id"
+            }
+        }
+    },
+    "tbl_has_mtm1": {
+        "slug": "tbl_has_mtm1",
+        "table": {
+            "name": "tbl_has_mtm1",
+            "pk": "tbl_id",
+            "verbose": "tbl_has_mtm1"
+        },
+        "columns": [
+            {
+                "name": "tbl_id",
+                "verbose": "tbl_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "mtm1_id",
+                "verbose": "mtm1_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    },
+    "tbl_has_mtm2": {
+        "slug": "tbl_has_mtm2",
+        "table": {
+            "name": "tbl_has_mtm2",
+            "pk": "tbl_id",
+            "verbose": "tbl_has_mtm2"
+        },
+        "columns": [
+            {
+                "name": "tbl_id",
+                "verbose": "tbl_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "mtm2_id",
+                "verbose": "mtm2_id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": false
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Express Admin Tests</title>
+
+    <!-- style -->
+    <link href="node_modules/mocha/mocha.css" rel="stylesheet" type="text/css" media="all" />
+    <style type="text/css">
+        #iframe { width: 100%; height: 500px; }
+    </style>
+    
+    <!-- Mocha -->
+    <script type="text/javascript" charset="utf-8">
+        // Remove symbols of node-webkit to avoid conficts with mocha in browser.
+        var nodeRequire = require;
+        var nodeGlobal = global;
+        var nodeProcess = process;
+        require = undefined;
+        global = undefined;
+        process = undefined;
+    </script>
+    <!--
+        Use the browser version of mocha, the node version of mocha will
+        run tests in node contex, which make it imposssible to test nw.gui.
+        Mocha needs to be v1.11.0 - https://github.com/visionmedia/mocha/issues/960
+    -->
+    <script src="node_modules/mocha/mocha.js" type="text/javascript" charset="utf-8"></script>
+    <script src="node_modules/chai/chai.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        // Restore default node-webkit environment.
+        require = nodeRequire;
+        global = nodeGlobal;
+        process = nodeProcess;
+    </script>
+
+    <!-- jquery -->
+    <script src="node_modules/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <!-- globals -->
+    <script type="text/javascript" charset="utf-8">
+        // show the dev tools by default
+        require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
+
+        var tests = {};
+    </script>
+    <!-- test suite -->
+    <script src="test/login.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/otm1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/otm2.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- test config -->
+    <script src="config.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+    <div id="mocha"></div>
+</body>
+</html>

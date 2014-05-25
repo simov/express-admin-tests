@@ -1,0 +1,13 @@
+{
+    "sqlite": {
+        "database": "/home/mighty/node/modules/express-admin-tests/fixtures/x-relationships-single/x-relationships-single.sqlite"
+    },
+    "server": {
+        "port": 3000
+    },
+    "app": {
+        "layouts": true,
+        "themes": true,
+        "languages": true
+    }
+}
