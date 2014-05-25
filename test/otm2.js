@@ -2,20 +2,23 @@
 tests.otm2 = function () {
 
 describe('otm2', function () {
+    before(function (done) {
+        client.query(sql.truncate('otm2'), done);
+    });
     it('should be empty', function (done) {
-        win.location.href = '/otm2';
+        $('a[href="/otm2"]')[0].click();
         page.load(function () {
-            $('.ex-table tbody tr').length.should.equal(0);
-            win.location.href = '/otm2/add';
+            $('.x-table tbody tr').length.should.equal(0);
+            $('a[href="/otm2/add"]')[0].click();
             page.load(done);
         });
     });
     it('save and add another', function (done) {
         $('[name="view[otm2][records][0][columns][name1]"]').val('otm');
         $('[name="view[otm2][records][0][columns][name2]"]').val('1');
-        $('[name="action[another]"').trigger('click');
+        $('[name="action[another]"')[0].click();
         page.load(function () {
-            $('h2').text().should.equal('otm2');
+            win.location.pathname.should.equal('/otm2/add');
             $('.alert-success strong').text().should.equal('Success:');
             $('[name="view[otm2][records][0][columns][name1]"]').val().should.equal('');
             $('[name="view[otm2][records][0][columns][name2]"]').val().should.equal('');
@@ -25,22 +28,21 @@ describe('otm2', function () {
     it('save and continue editing', function (done) {
         $('[name="view[otm2][records][0][columns][name1]"]').val('otm');
         $('[name="view[otm2][records][0][columns][name2]"]').val('2');
-        $('[name="action[continue]"').trigger('click');
+        $('[name="action[continue]"')[0].click();
         page.load(function () {
-            $('h2').text().should.equal('otm2');
             $('.alert-success strong').text().should.equal('Success:');
             $('[name="view[otm2][records][0][columns][name1]"]').val().should.equal('otm');
             $('[name="view[otm2][records][0][columns][name2]"]').val().should.equal('2');
-            win.location.href = '/otm2/add';
+            $('[name="action[another]"')[0].click();
             page.load(done);
         });
     });
     it('save', function (done) {
         $('[name="view[otm2][records][0][columns][name1]"]').val('otm');
         $('[name="view[otm2][records][0][columns][name2]"]').val('3');
-        $('[name="action[save]"').trigger('click');
+        $('[name="action[save]"')[0].click();
         page.load(function () {
-            win.location.pathname.should.equal('/otm2')
+            win.location.pathname.should.equal('/otm2');
             $('.alert-success strong').text().should.equal('Success:');
             $('.x-table tbody tr').length.should.equal(3);
             $('.x-table tbody tr:eq(0) td:eq(1)').text().trim().should.equal('1');
