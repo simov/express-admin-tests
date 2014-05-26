@@ -2,12 +2,32 @@
 # Express Admin Tests
 Integration tests for [Express Admin][0]
 
-#### Import
+#### Database
 _x-relationships-single_, _x-relationships-compound_
+```sql
+-- mysql
+create schema `x-relationships-single` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+-- pg
+create database "x-relationships-single";
+```
+
+#### Import
 ```bash
 $ mysql -p --user=root 'x-relationships-single' < fixtures/x-relationships-single/mysql.sql
 $ sudo -u postgres psql 'x-relationships-single' < fixtures/x-relationships-single/pg.sql
 $ node fixtures/sqlite-import.js x-relationships-single
+```
+
+#### Grants
+```sql
+-- mysql
+grant all on `x-relationships-single`.* to liolio@localhost ;
+-- pg
+\c "x-relationships-single"
+grant all on database "x-relationships-single" to liolio;
+grant all on schema "public" to liolio;
+grant all on all tables in schema "public" to liolio;
+grant all on all sequences in schema "public" to liolio;
 ```
 
 #### Install
