@@ -46,6 +46,10 @@ describe('otm1', function () {
             done();
         });
     });
+    after(function (done) {
+        $('a[href="/"]')[0].click();
+        page.load(done);
+    });
 });
 
 }
