@@ -111,8 +111,12 @@ jQuery(function () {
             // test suite
 
             // tests.login();
-            tests.otm1();
-            tests.otm2();
+
+            // tests.otm1();
+            // tests.otm2();
+
+            tests.mtm1();
+            tests.mtm2();
 
             after(function (done) {
                 async.series([
