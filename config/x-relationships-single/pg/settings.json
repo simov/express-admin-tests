@@ -910,8 +910,8 @@
         "editview": {
             "readonly": false,
             "manyToOne": {
-                "mto1": "id",
-                "mto2": "id"
+                "mto1": "tbl_id",
+                "mto2": "tbl_id"
             }
         }
     },
