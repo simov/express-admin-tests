@@ -119,6 +119,7 @@ jQuery(function () {
             tests.mtm2();
 
             tests.tbl();
+            tests.filter();
 
             after(function (done) {
                 async.series([
