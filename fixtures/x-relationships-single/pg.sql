@@ -44,6 +44,7 @@ ALTER TABLE "mto2" DROP CONSTRAINT "tbl_id";
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "otm1" ;
 CREATE SEQUENCE otm1_id_seq;
+ALTER SEQUENCE otm1_id_seq owner TO liolio;
 
 CREATE TABLE IF NOT EXISTS "otm1" (
   "id" INT NOT NULL DEFAULT nextval('otm1_id_seq'),
@@ -56,6 +57,7 @@ CREATE TABLE IF NOT EXISTS "otm1" (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "otm2" ;
 CREATE SEQUENCE otm2_id_seq;
+ALTER SEQUENCE otm2_id_seq owner TO liolio;
 
 CREATE TABLE IF NOT EXISTS "otm2" (
   "id" INT NOT NULL DEFAULT nextval('otm2_id_seq'),
@@ -69,6 +71,7 @@ CREATE TABLE IF NOT EXISTS "otm2" (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "tbl" ;
 CREATE SEQUENCE tbl_id_seq;
+ALTER SEQUENCE tbl_id_seq owner TO liolio;
 
 CREATE TABLE IF NOT EXISTS "tbl" (
   "id" INT NOT NULL DEFAULT nextval('tbl_id_seq'),
@@ -93,6 +96,7 @@ CREATE TABLE IF NOT EXISTS "tbl" (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "mtm1" ;
 CREATE SEQUENCE mtm1_id_seq;
+ALTER SEQUENCE mtm1_id_seq owner TO liolio;
 
 CREATE TABLE IF NOT EXISTS "mtm1" (
   "id" INT NOT NULL DEFAULT nextval('mtm1_id_seq'),
@@ -105,6 +109,7 @@ CREATE TABLE IF NOT EXISTS "mtm1" (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "mtm2" ;
 CREATE SEQUENCE mtm2_id_seq;
+ALTER SEQUENCE mtm2_id_seq owner TO liolio;
 
 CREATE TABLE IF NOT EXISTS "mtm2" (
   "id" INT NOT NULL DEFAULT nextval('mtm2_id_seq'),
@@ -118,6 +123,7 @@ CREATE TABLE IF NOT EXISTS "mtm2" (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "mto1" ;
 CREATE SEQUENCE mto1_id_seq;
+ALTER SEQUENCE mto1_id_seq owner TO liolio;
 
 CREATE TABLE IF NOT EXISTS "mto1" (
   "id" INT NOT NULL DEFAULT nextval('mto1_id_seq'),
@@ -148,6 +154,7 @@ CREATE TABLE IF NOT EXISTS "mto1" (
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS "mto2" ;
 CREATE SEQUENCE mto2_id_seq;
+ALTER SEQUENCE mto2_id_seq owner TO liolio;
 
 CREATE TABLE IF NOT EXISTS "mto2" (
   "id" INT NOT NULL DEFAULT nextval('mto2_id_seq'),
