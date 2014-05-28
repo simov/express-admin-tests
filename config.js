@@ -120,6 +120,7 @@ jQuery(function () {
 
             tests.tbl();
             tests.filter();
+            tests.edit();
 
             after(function (done) {
                 async.series([
