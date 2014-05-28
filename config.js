@@ -48,7 +48,7 @@ jQuery(function () {
         win = iframe.window;
 
         page.onload();
-        // setTimeout(function () {page.onload();}, 5000);
+        // setTimeout(function () {page.onload();}, 3000);
     });
 
     // wait until the iframe is loaded
@@ -112,11 +112,13 @@ jQuery(function () {
 
             // tests.login();
 
-            // tests.otm1();
-            // tests.otm2();
+            tests.otm1();
+            tests.otm2();
 
             tests.mtm1();
             tests.mtm2();
+
+            tests.tbl();
 
             after(function (done) {
                 async.series([
