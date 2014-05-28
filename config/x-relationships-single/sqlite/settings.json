@@ -905,7 +905,13 @@
         },
         "listview": {
             "order": {},
-            "page": 25
+            "page": 2,
+            "filter": [
+                "otm1_id",
+                "otm2_id",
+                "mtm1",
+                "mtm2"
+            ]
         },
         "editview": {
             "readonly": false,

@@ -439,7 +439,7 @@ describe('tbl', function () {
         page.load(function () {
             win.location.pathname.should.equal('/tbl');
             $('.alert-success strong').text().should.equal('Success:');
-            $('.x-table tbody tr').length.should.equal(3);
+            $('.x-table tbody tr').length.should.equal(2);
 
             $('.x-table tbody tr:eq(0) a').text().should.equal('otm1');
             $('.x-table tbody tr:eq(0) td:eq(1)').text().trim().should.equal('otm 1');
@@ -455,12 +455,8 @@ describe('tbl', function () {
             $('.x-table tbody tr:eq(1) td:eq(3) span:eq(0)').text().should.equal('mtm 2');
             $('.x-table tbody tr:eq(1) td:eq(3) span:eq(1)').text().should.equal('mtm 3');
 
-            $('.x-table tbody tr:eq(2) a').text().should.equal('otm3');
-            $('.x-table tbody tr:eq(2) td:eq(1)').text().trim().should.equal('otm 3');
-            $('.x-table tbody tr:eq(2) td:eq(2) span:eq(0)').text().should.equal('mtm1');
-            $('.x-table tbody tr:eq(2) td:eq(2) span:eq(1)').text().should.equal('mtm3');
-            $('.x-table tbody tr:eq(2) td:eq(3) span:eq(0)').text().should.equal('mtm 1');
-            $('.x-table tbody tr:eq(2) td:eq(3) span:eq(1)').text().should.equal('mtm 3');
+            $('.pagination li:eq(0)').hasClass('active').should.equal(true);
+            $('.pagination li:eq(1) a').text().should.equal('2');
 
             done();
         });
