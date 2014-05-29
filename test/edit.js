@@ -5,7 +5,7 @@ describe('edit', function () {
     before(function (done) {
         $('a[href="/tbl"]')[0].click();
         page.load(function () {
-            $('a[href="/tbl/1"]')[0].click();
+            $('.x-table tbody tr:eq(0) a')[0].click();
             page.load(done);
         });
     });
