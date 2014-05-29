@@ -254,6 +254,17 @@ describe('edit', function () {
         });
     });
 
+    it('remove', function (done) {
+        $('[name="action[remove]"')[0].click();
+        page.load(function () {
+            win.location.pathname.should.equal('/tbl');
+            $('.alert-success strong').text().should.equal('Success:');
+            $('.x-table tbody tr').length.should.equal(2);
+            $('.pagination li').length.should.equal(0);
+            done();
+        });
+    });
+
     after(function (done) {
         $('a[href="/"]')[0].click();
         page.load(done);
