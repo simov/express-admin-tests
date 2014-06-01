@@ -1500,7 +1500,13 @@
         },
         "listview": {
             "order": {},
-            "page": 25
+            "page": 2,
+            "filter": [
+                "otm1",
+                "otm2",
+                "mtm1",
+                "mtm2"
+            ]
         },
         "editview": {
             "readonly": false,
