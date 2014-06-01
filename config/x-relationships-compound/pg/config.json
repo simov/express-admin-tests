@@ -1,0 +1,15 @@
+{
+    "pg": {
+        "database": "x-relationships-compound",
+        "user": "liolio",
+        "password": "karamba"
+    },
+    "server": {
+        "port": 3000
+    },
+    "app": {
+        "layouts": true,
+        "themes": true,
+        "languages": true
+    }
+}

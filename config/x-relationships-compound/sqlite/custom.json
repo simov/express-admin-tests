@@ -1,0 +1,5 @@
+{
+    "app1": {
+        "events": "/home/mighty/node/modules/express-admin-tests/config/x-relationships-compound/custom/events.js"
+    }
+}
