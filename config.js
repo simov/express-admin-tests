@@ -57,7 +57,7 @@ jQuery(function () {
     });
 });
 
-['x-relationships-single'].forEach(function (db) {
+['x-relationships-single', 'x-relationships-compound'].forEach(function (db) {
     ['mysql', 'pg', 'sqlite'].forEach(function (engine) {
         describe(engine, function () {
             before(function (done) {
@@ -68,6 +68,7 @@ jQuery(function () {
                         server.stdout.on('data', function (e) {
                             if (e.toString().trim().match(/Express Admin listening.*/))
                                 done();
+                            // else console.log(e.toString().trim());
                         });
                     },
                     function (done) {
@@ -109,8 +110,6 @@ jQuery(function () {
             });
 
             // test suite
-
-            // tests.login();
 
             tests.otm1();
             tests.otm2();
