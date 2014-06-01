@@ -109,7 +109,8 @@ describe('tbl', function () {
 
     it('set tbl fields', function (done) {
         // tbl otm1
-        $('[name="view[tbl][records][0][columns][otm1_id]"]').val(1).trigger('chosen:updated');
+        $('[name="view[tbl][records][0][columns][otm1_id]"] option:eq(1)').attr('selected',true);
+        $('[name="view[tbl][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // tbl mtm1
         $('[name="view[tbl][records][0][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="view[tbl][records][0][columns][mtm1]"] option:eq(2)').attr('selected',true);
@@ -123,7 +124,8 @@ describe('tbl', function () {
     it('set mto1 fields', function (done) {
         $('.add-another:eq(0)')[0].click();
         // mto1 otm1
-        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // mto1 mtm1
         $('[name="manyToOne[mto1][records][0][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto1][records][0][columns][mtm1]"] option:eq(2)').attr('selected',true);
@@ -131,7 +133,8 @@ describe('tbl', function () {
 
         $('.add-another:eq(0)')[0].click();
         // mto1 otm1
-        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').trigger('chosen:updated');
         // mto1 mtm1
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(2)').attr('selected',true);
@@ -149,7 +152,8 @@ describe('tbl', function () {
 
         $('.add-another:eq(0)')[0].click();
         // mto1 otm1
-        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').trigger('chosen:updated');
         // mto1 mtm1
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(2)').attr('selected',true);
@@ -159,7 +163,8 @@ describe('tbl', function () {
     it('set mto2 fields', function (done) {
         $('.add-another:eq(1)')[0].click();
         // mto2 otm1
-        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // mto2 mtm1
         $('[name="manyToOne[mto2][records][0][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto2][records][0][columns][mtm1]"] option:eq(2)').attr('selected',true);
@@ -167,7 +172,8 @@ describe('tbl', function () {
 
         $('.add-another:eq(1)')[0].click();
         // mto2 otm1
-        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"]').trigger('chosen:updated');
         // mto2 mtm1
         $('[name="manyToOne[mto2][records][1][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto2][records][1][columns][mtm1]"] option:eq(2)').attr('selected',true);
@@ -185,33 +191,38 @@ describe('tbl', function () {
 
     it('save and add another', function (done) {
         // tbl otm2
-        $('[name="view[tbl][records][0][columns][otm2_id]"]').val(1).trigger('chosen:updated');
+        $('[name="view[tbl][records][0][columns][otm2_id]"] option:eq(1)').attr('selected',true);
+        $('[name="view[tbl][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // tbl mtm2
         $('[name="view[tbl][records][0][columns][mtm2]"] option:eq(1)').attr('selected',true);
         $('[name="view[tbl][records][0][columns][mtm2]"] option:eq(2)').attr('selected',true);
         $('[name="view[tbl][records][0][columns][mtm2]"]').trigger('chosen:updated');
 
         // mto1 otm2
-        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // mto1 mtm2
         $('[name="manyToOne[mto1][records][0][columns][mtm2]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto1][records][0][columns][mtm2]"] option:eq(2)').attr('selected',true);
         $('[name="manyToOne[mto1][records][0][columns][mtm2]"]').trigger('chosen:updated');
         // mto1 otm2
-        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"]').trigger('chosen:updated');
         // mto1 mtm2
         $('[name="manyToOne[mto1][records][1][columns][mtm2]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto1][records][1][columns][mtm2]"] option:eq(2)').attr('selected',true);
         $('[name="manyToOne[mto1][records][1][columns][mtm2]"]').trigger('chosen:updated');
 
         // mto2 otm2
-        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // mto2 mtm2
         $('[name="manyToOne[mto2][records][0][columns][mtm2]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto2][records][0][columns][mtm2]"] option:eq(2)').attr('selected',true);
         $('[name="manyToOne[mto2][records][0][columns][mtm2]"]').trigger('chosen:updated');
         // mto2 otm2
-        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"]').val(1).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"] option:eq(1)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"]').trigger('chosen:updated');
         // mto2 mtm2
         $('[name="manyToOne[mto2][records][1][columns][mtm2]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto2][records][1][columns][mtm2]"] option:eq(2)').attr('selected',true);
@@ -233,9 +244,11 @@ describe('tbl', function () {
 
     it('save and continue editing', function (done) {
         // tbl otm1
-        $('[name="view[tbl][records][0][columns][otm1_id]"]').val(2).trigger('chosen:updated');
+        $('[name="view[tbl][records][0][columns][otm1_id]"] option:eq(2)').attr('selected',true);
+        $('[name="view[tbl][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // tbl otm2
-        $('[name="view[tbl][records][0][columns][otm2_id]"]').val(2).trigger('chosen:updated');
+        $('[name="view[tbl][records][0][columns][otm2_id]"] option:eq(2)').attr('selected',true);
+        $('[name="view[tbl][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // tbl mtm1
         $('[name="view[tbl][records][0][columns][mtm1]"] option:eq(2)').attr('selected',true);
         $('[name="view[tbl][records][0][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -247,9 +260,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(0)')[0].click();
         // mto1 otm1
-        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // mto1 otm2
-        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // mto1 mtm1
         $('[name="manyToOne[mto1][records][0][columns][mtm1]"] option:eq(2)').attr('selected',true);
         $('[name="manyToOne[mto1][records][0][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -261,9 +276,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(0)')[0].click();
         // mto1 otm1
-        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').trigger('chosen:updated');
         // mto1 otm2
-        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"]').trigger('chosen:updated');
         // mto1 mtm1
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(2)').attr('selected',true);
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -275,9 +292,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(1)')[0].click();
         // mto2 otm1
-        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // mto2 otm2
-        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // mto2 mtm1
         $('[name="manyToOne[mto2][records][0][columns][mtm1]"] option:eq(2)').attr('selected',true);
         $('[name="manyToOne[mto2][records][0][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -289,9 +308,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(1)')[0].click();
         // mto2 otm1
-        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"]').trigger('chosen:updated');
         // mto2 otm2
-        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"]').val(2).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"] option:eq(2)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"]').trigger('chosen:updated');
         // mto2 mtm1
         $('[name="manyToOne[mto2][records][1][columns][mtm1]"] option:eq(2)').attr('selected',true);
         $('[name="manyToOne[mto2][records][1][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -367,9 +388,11 @@ describe('tbl', function () {
 
     it('save', function (done) {
         // tbl otm1
-        $('[name="view[tbl][records][0][columns][otm1_id]"]').val(3).trigger('chosen:updated');
+        $('[name="view[tbl][records][0][columns][otm1_id]"] option:eq(3)').attr('selected',true);
+        $('[name="view[tbl][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // tbl otm2
-        $('[name="view[tbl][records][0][columns][otm2_id]"]').val(3).trigger('chosen:updated');
+        $('[name="view[tbl][records][0][columns][otm2_id]"] option:eq(3)').attr('selected',true);
+        $('[name="view[tbl][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // tbl mtm1
         $('[name="view[tbl][records][0][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="view[tbl][records][0][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -381,9 +404,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(0)')[0].click();
         // mto1 otm1
-        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // mto1 otm2
-        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // mto1 mtm1
         $('[name="manyToOne[mto1][records][0][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto1][records][0][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -395,9 +420,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(0)')[0].click();
         // mto1 otm1
-        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][1][columns][otm1_id]"]').trigger('chosen:updated');
         // mto1 otm2
-        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto1][records][1][columns][otm2_id]"]').trigger('chosen:updated');
         // mto1 mtm1
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto1][records][1][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -409,9 +436,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(1)')[0].click();
         // mto2 otm1
-        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][0][columns][otm1_id]"]').trigger('chosen:updated');
         // mto2 otm2
-        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][0][columns][otm2_id]"]').trigger('chosen:updated');
         // mto2 mtm1
         $('[name="manyToOne[mto2][records][0][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto2][records][0][columns][mtm1]"] option:eq(3)').attr('selected',true);
@@ -423,9 +452,11 @@ describe('tbl', function () {
 
         $('.add-another:eq(1)')[0].click();
         // mto2 otm1
-        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][1][columns][otm1_id]"]').trigger('chosen:updated');
         // mto2 otm2
-        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"]').val(3).trigger('chosen:updated');
+        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"] option:eq(3)').attr('selected',true);
+        $('[name="manyToOne[mto2][records][1][columns][otm2_id]"]').trigger('chosen:updated');
         // mto2 mtm1
         $('[name="manyToOne[mto2][records][1][columns][mtm1]"] option:eq(1)').attr('selected',true);
         $('[name="manyToOne[mto2][records][1][columns][mtm1]"] option:eq(3)').attr('selected',true);

@@ -24,7 +24,8 @@ describe('filter', function () {
         });
     });
     it('otm1', function (done) {
-        $('[name="filter[otm1_id]"]').val(1).trigger('chosen:updated');
+        $('[name="filter[otm1_id]"] option:eq(1)').attr('selected',true);
+        $('[name="filter[otm1_id]"]').trigger('chosen:updated');
         $('[name="action[filter]"]')[0].click();
         page.load(function () {
             $('form').is(':visible').should.equal(true);
