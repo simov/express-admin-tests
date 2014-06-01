@@ -455,6 +455,7 @@ describe('tbl', function () {
             $('.x-table tbody tr:eq(1) td:eq(3) span:eq(0)').text().should.equal('mtm 2');
             $('.x-table tbody tr:eq(1) td:eq(3) span:eq(1)').text().should.equal('mtm 3');
 
+            $('.pagination li').length.should.equal(4);
             $('.pagination li:eq(0)').hasClass('active').should.equal(true);
             $('.pagination li:eq(1) a').text().should.equal('2');
 

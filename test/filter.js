@@ -17,6 +17,7 @@ describe('filter', function () {
         page.load(function () {
             $('form').is(':visible').should.equal(true);
             $('.x-table tbody tr').length.should.equal(2);
+            $('.pagination li').length.should.equal(4);
             $('.pagination li:eq(0)').hasClass('active').should.equal(true);
             $('.pagination li:eq(1) a').text().should.equal('2');
             done();
@@ -68,6 +69,7 @@ describe('filter', function () {
             $('.x-table tbody tr').length.should.equal(2);
             $('.x-table tbody tr:eq(0) td:eq(0) a').text().should.equal('otm1');
             $('.x-table tbody tr:eq(1) td:eq(0) a').text().should.equal('otm2');
+            $('.pagination li').length.should.equal(4);
             $('.pagination li:eq(0)').hasClass('active').should.equal(true);
             $('.pagination li:eq(1) a').text().should.equal('2');
             done();
@@ -123,6 +125,7 @@ describe('filter', function () {
             $('.x-table tbody tr').length.should.equal(2);
             $('.x-table tbody tr:eq(0) td:eq(0) a').text().should.equal('otm1');
             $('.x-table tbody tr:eq(1) td:eq(0) a').text().should.equal('otm2');
+            $('.pagination li').length.should.equal(4);
             $('.pagination li:eq(0)').hasClass('active').should.equal(true);
             $('.pagination li:eq(1) a').text().should.equal('2');
             done();
