@@ -64,7 +64,7 @@ jQuery(function () {
                 async.series([
                     function (done) {
                         // start server
-                        server = spawn('admin', ['config/'+db+'/'+engine]);
+                        server = spawn('admin', [/*'-l',*/ 'config/'+db+'/'+engine]);
                         server.stdout.on('data', function (e) {
                             if (e.toString().trim().match(/Express Admin listening.*/))
                                 done();
