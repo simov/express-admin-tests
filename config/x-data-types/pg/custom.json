@@ -1,0 +1,20 @@
+{
+    "editors": {
+        "public": {
+            "external": {
+                "js": [
+                    "//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.2/ckeditor.js"
+                ]
+            },
+            "local": {
+                "path": "/home/mighty/node/modules/express-admin-tests/config/x-data-types/custom",
+                "js": [
+                    "/editors.js"
+                ]
+            }
+        }
+    },
+    "app1": {
+        "events": "/home/mighty/node/modules/express-admin-tests/config/x-data-types/custom/events.js"
+    }
+}

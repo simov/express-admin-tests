@@ -1,0 +1,16 @@
+{
+    "pg": {
+        "database": "x-data-types",
+        "user": "liolio",
+        "password": "karamba",
+        "schema": "x"
+    },
+    "server": {
+        "port": 3000
+    },
+    "app": {
+        "layouts": true,
+        "themes": true,
+        "languages": true
+    }
+}
