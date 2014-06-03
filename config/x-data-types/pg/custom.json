@@ -14,6 +14,16 @@
             }
         }
     },
+    "binary": {
+        "public": {
+            "local": {
+                "path": "/home/mighty/node/modules/express-admin-tests/config/x-data-types/custom",
+                "js": [
+                    "/binary.js"
+                ]
+            }
+        }
+    },
     "app1": {
         "events": "/home/mighty/node/modules/express-admin-tests/config/x-data-types/custom/events.js"
     }
