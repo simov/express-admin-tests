@@ -232,8 +232,8 @@ describe('tbl', function () {
         page.load(function () {
             win.location.pathname.should.equal('/tbl/add');
             $('.alert-success strong').text().should.equal('Success:');
-            $('[name="view[tbl][records][0][columns][otm1_id]"] option:selected').val().should.equal('NULL');
-            $('[name="view[tbl][records][0][columns][otm2_id]"] option:selected').val().should.equal('NULL');
+            $('[name="view[tbl][records][0][columns][otm1_id]"] option:selected').val().should.equal('');
+            $('[name="view[tbl][records][0][columns][otm2_id]"] option:selected').val().should.equal('');
             $('[name="view[tbl][records][0][columns][mtm1]"] option:selected').length.should.equal(0);
             $('[name="view[tbl][records][0][columns][mtm2]"] option:selected').length.should.equal(0);
             $('[data-table=mto1] tbody tr:not(.blank)').length.should.equal(0);
