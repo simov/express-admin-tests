@@ -1,5 +1,5 @@
 
-tests.edit = function () {
+tests.relationships.edit = function () {
 
 describe('edit', function () {
     before(function (done) {

@@ -57,9 +57,9 @@ jQuery(function () {
     });
 });
 
-['x-relationships-single', 'x-relationships-compound'].forEach(function (db) {
+['x-relationships-single', 'x-relationships-compound', 'x-data-types'].forEach(function (db) {
     ['mysql', 'pg', 'sqlite'].forEach(function (engine) {
-        describe(engine, function () {
+        describe(engine+' - '+db, function () {
             before(function (done) {
                 async.series([
                     function (done) {
@@ -69,6 +69,9 @@ jQuery(function () {
                             if (e.toString().trim().match(/Express Admin listening.*/))
                                 done();
                             // else console.log(e.toString().trim());
+                        });
+                        server.stderr.on('data', function (e) {
+                            console.log(e.toString().trim());
                         });
                     },
                     function (done) {
@@ -111,16 +114,25 @@ jQuery(function () {
 
             // test suite
 
-            tests.otm1();
-            tests.otm2();
+            switch (true) {
+                case (/relationships/.test(db)):
+                    tests.relationships.otm1();
+                    tests.relationships.otm2();
 
-            tests.mtm1();
-            tests.mtm2();
+                    tests.relationships.mtm1();
+                    tests.relationships.mtm2();
 
-            tests.tbl();
-            tests.filter();
-            tests.edit();
-
+                    tests.relationships.tbl();
+                    tests.relationships.filter();
+                    tests.relationships.edit();
+                    break;
+                case (/data-types/.test(db) && /pg/.test(engine)):
+                    // sql.pg.truncate is broken!
+                    // tests.types.otm();
+                    // tests.types.mtm();
+                    break;
+            }
+            
             after(function (done) {
                 async.series([
                     function (done) {

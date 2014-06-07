@@ -1,5 +1,5 @@
 
-tests.tbl = function () {
+tests.relationships.tbl = function () {
 
 describe('tbl', function () {
     before(function (done) {

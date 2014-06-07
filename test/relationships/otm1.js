@@ -1,5 +1,5 @@
 
-tests.otm1 = function () {
+tests.relationships.otm1 = function () {
 
 describe('otm1', function () {
     before(function (done) {

@@ -1,5 +1,5 @@
 
-tests.filter = function () {
+tests.relationships.filter = function () {
 
 describe('filter', function () {
     before(function (done) {

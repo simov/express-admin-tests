@@ -3,7 +3,7 @@
 Integration tests for [Express Admin][0]
 
 #### Database
-_x-relationships-single_, _x-relationships-compound_
+_x-relationships-single_, _x-relationships-compound_, _x-data-types_
 ```sql
 -- mysql
 create schema `x-relationships-single` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;

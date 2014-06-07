@@ -42,16 +42,19 @@
         // show the dev tools by default
         require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
 
-        var tests = {};
+        var tests = {relationships:{}, types:{}};
     </script>
     <!-- test suite -->
-    <script src="test/otm1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="test/otm2.js" type="text/javascript" charset="utf-8"></script>
-    <script src="test/mtm1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="test/mtm2.js" type="text/javascript" charset="utf-8"></script>
-    <script src="test/tbl.js" type="text/javascript" charset="utf-8"></script>
-    <script src="test/filter.js" type="text/javascript" charset="utf-8"></script>
-    <script src="test/edit.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/relationships/otm1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/relationships/otm2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/relationships/mtm1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/relationships/mtm2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/relationships/tbl.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/relationships/filter.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/relationships/edit.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script src="test/data-types/otm.js" type="text/javascript" charset="utf-8"></script>
+    <script src="test/data-types/mtm.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- test config -->
     <script src="config.js" type="text/javascript" charset="utf-8"></script>
