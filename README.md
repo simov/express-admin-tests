@@ -1,6 +1,6 @@
 
 # Express Admin Tests
-Integration tests for [Express Admin][0]
+System tests for [Express Admin][0]
 
 #### Database
 _x-relationships-single_, _x-relationships-compound_, _x-data-types_
