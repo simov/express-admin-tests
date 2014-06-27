@@ -1,6 +1,4 @@
 
-tests.relationships.filter = function () {
-
 describe('filter', function () {
     before(function (done) {
         $('a[href="/tbl"]')[0].click();
@@ -138,5 +136,3 @@ describe('filter', function () {
         page.load(done);
     });
 });
-
-}

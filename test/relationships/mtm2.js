@@ -1,6 +1,4 @@
 
-tests.relationships.mtm2 = function () {
-
 describe('mtm2', function () {
     before(function (done) {
         client.query(sql.truncate('mtm2'), done);
@@ -56,5 +54,3 @@ describe('mtm2', function () {
         page.load(done);
     });
 });
-
-}

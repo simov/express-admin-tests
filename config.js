@@ -1,12 +1,15 @@
 
-// mocha setup
-var should = chai.should();
-mocha.suite._timeout = 1000 * 60 * 60;
-mocha.setup({
-    ui: 'bdd',
-    bail: true,
-    globals: ['']
-});
+// show the dev tools by default
+require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
+
+var Mocha = require('mocha');
+var mocha = new Mocha;
+mocha.reporter('loca');
+mocha.bail(true);
+mocha.timeout(1000*60*60);
+// pass the browser context
+mocha.suite.emit('pre-require', window, null, mocha);
+
 // iframe onload callback
 var page = {
     onload: null,
@@ -116,15 +119,16 @@ jQuery(function () {
 
             switch (true) {
                 case (/relationships/.test(db)):
-                    tests.relationships.otm1();
-                    tests.relationships.otm2();
+                    var file = '<script src="test/relationships/name.js"></script>';
+                    jQuery('head').append(file.replace('name', 'otm1'));
+                    jQuery('head').append(file.replace('name', 'otm2'));
 
-                    tests.relationships.mtm1();
-                    tests.relationships.mtm2();
+                    jQuery('head').append(file.replace('name', 'mtm1'));
+                    jQuery('head').append(file.replace('name', 'mtm2'));
 
-                    tests.relationships.tbl();
-                    tests.relationships.filter();
-                    tests.relationships.edit();
+                    jQuery('head').append(file.replace('name', 'tbl'));
+                    jQuery('head').append(file.replace('name', 'filter'));
+                    jQuery('head').append(file.replace('name', 'edit'));
                     break;
                 case (/data-types/.test(db) && /pg/.test(engine)):
                     // sql.pg.truncate is broken!

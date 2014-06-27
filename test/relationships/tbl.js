@@ -1,6 +1,4 @@
 
-tests.relationships.tbl = function () {
-
 describe('tbl', function () {
     before(function (done) {
         async.eachSeries(['tbl','mto1','mto2',
@@ -499,5 +497,3 @@ describe('tbl', function () {
         page.load(done);
     });
 });
-    
-}

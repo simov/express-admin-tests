@@ -1,6 +1,4 @@
 
-tests.relationships.edit = function () {
-
 describe('edit', function () {
     before(function (done) {
         $('a[href="/tbl"]')[0].click();
@@ -286,5 +284,3 @@ describe('edit', function () {
         page.load(done);
     });
 });
-
-}

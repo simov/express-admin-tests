@@ -1,6 +1,4 @@
 
-tests.relationships.otm2 = function () {
-
 describe('otm2', function () {
     before(function (done) {
         client.query(sql.truncate('otm2'), done);
@@ -56,5 +54,3 @@ describe('otm2', function () {
         page.load(done);
     });
 });
-
-}
