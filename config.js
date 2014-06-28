@@ -56,7 +56,11 @@ jQuery(function () {
 
     // wait until the iframe is loaded
     page.load(function () {
-        mocha.run();
+        mocha.run(function (failures) {
+            process.on('exit', function () {
+                process.exit(failures);
+            });
+        });
     });
 });
 
@@ -130,10 +134,10 @@ jQuery(function () {
                     jQuery('head').append(file.replace('name', 'filter'));
                     jQuery('head').append(file.replace('name', 'edit'));
                     break;
-                case (/data-types/.test(db) && /pg/.test(engine)):
-                    // sql.pg.truncate is broken!
-                    // tests.types.otm();
-                    // tests.types.mtm();
+                case (/data-types/.test(db) /*&& /pg/.test(engine)*/):
+                    var file = '<script src="test/data-types/name.js"></script>';
+                    jQuery('head').append(file.replace('name', 'otm'));
+                    jQuery('head').append(file.replace('name', 'mtm'));
                     break;
             }
             
