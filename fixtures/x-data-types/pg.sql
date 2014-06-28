@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS "x"."otm" ;
 
 CREATE TABLE IF NOT EXISTS "x"."otm" (
   "id" SERIAL NOT NULL,
-  "name1" TIMESTAMP NULL,
+  "name1" VARCHAR(45) NOT NULL,
   PRIMARY KEY ("id"));
 
 
@@ -101,8 +101,8 @@ DROP TABLE IF EXISTS "x"."mtm" ;
 
 CREATE TABLE IF NOT EXISTS "x"."mtm" (
   "id" SERIAL NOT NULL,
-  "name1" DECIMAL(4,2) NOT NULL,
-  "name2" TIMESTAMP NULL,
+  "name1" VARCHAR(45) NOT NULL,
+  "name2" INT NULL,
   PRIMARY KEY ("id"));
 
 

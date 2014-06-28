@@ -1,6 +1,4 @@
 
-tests.types.otm = function () {
-
 describe('otm', function () {
     before(function (done) {
         client.query(sql.truncate('otm'), done);
@@ -16,19 +14,19 @@ describe('otm', function () {
     it('add otm', function (done) {
         async.series([
             function (done) {
-                $('[name="view[otm][records][0][columns][name1]"]').val('2012-01-01 10:15');
+                $('[name="view[otm][records][0][columns][name1]"]').val('a');
                 $('[name="action[another]"')[0].click();
                 page.load(done);
             },
             function (done) {
                 $('.alert-success strong').text().should.equal('Success:');
-                $('[name="view[otm][records][0][columns][name1]"]').val('2013-01-01 10:15');
+                $('[name="view[otm][records][0][columns][name1]"]').val('b');
                 $('[name="action[another]"')[0].click();
                 page.load(done);
             },
             function (done) {
                 $('.alert-success strong').text().should.equal('Success:');
-                $('[name="view[otm][records][0][columns][name1]"]').val('2014-01-01 10:15');
+                $('[name="view[otm][records][0][columns][name1]"]').val('c');
                 $('[name="action[save]"')[0].click();
                 page.load(done);
             }	
@@ -36,12 +34,9 @@ describe('otm', function () {
             win.location.pathname.should.equal('/otm');
             $('.alert-success strong').text().should.equal('Success:');
             $('.x-table tbody tr').length.should.equal(3);
-            
-            // test this after the pk format bug is fixed
-
-            // $('.x-table tbody tr:eq(0) a').text().should.equal('otm1');
-            // $('.x-table tbody tr:eq(1) a').text().should.equal('otm2');
-            // $('.x-table tbody tr:eq(2) a').text().should.equal('otm3');
+            $('.x-table tbody tr:eq(0) a').text().should.equal('a');
+            $('.x-table tbody tr:eq(1) a').text().should.equal('b');
+            $('.x-table tbody tr:eq(2) a').text().should.equal('c');
             done();
         });
     });
@@ -50,5 +45,3 @@ describe('otm', function () {
         page.load(done);
     });
 });
-
-}

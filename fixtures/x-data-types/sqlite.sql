@@ -5,7 +5,7 @@
 DROP TABLE IF EXISTS `otm` ;
 
 CREATE TABLE IF NOT EXISTS `otm` (
-  `name1` DATETIME NULL);
+  `name1` VARCHAR(45) NOT NULL);
 
 
 -- -----------------------------------------------------
@@ -76,8 +76,8 @@ CREATE TABLE IF NOT EXISTS `mto` (
 DROP TABLE IF EXISTS `mtm` ;
 
 CREATE TABLE IF NOT EXISTS `mtm` (
-  `name1` DECIMAL(4,2) NOT NULL,
-  `name2` DATETIME NULL);
+  `name1` VARCHAR(45) NOT NULL,
+  `name2` INT NULL);
 
 
 -- -----------------------------------------------------

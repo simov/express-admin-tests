@@ -27,10 +27,10 @@
                 "name": "name1",
                 "verbose": "name1",
                 "control": {
-                    "datetime": true
+                    "text": true
                 },
-                "type": "timestamp",
-                "allowNull": true,
+                "type": "varchar(45)",
+                "allowNull": false,
                 "defaultValue": null,
                 "listview": {
                     "show": true
@@ -718,9 +718,9 @@
                 "name": "name1",
                 "verbose": "name1",
                 "control": {
-                    "number": true
+                    "text": true
                 },
-                "type": "decimal(4,2)",
+                "type": "varchar(45)",
                 "allowNull": false,
                 "defaultValue": null,
                 "listview": {
@@ -734,9 +734,9 @@
                 "name": "name2",
                 "verbose": "name2",
                 "control": {
-                    "datetime": true
+                    "number": true
                 },
-                "type": "timestamp",
+                "type": "integer",
                 "allowNull": true,
                 "defaultValue": null,
                 "listview": {
