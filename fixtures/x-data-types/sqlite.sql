@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `tbl` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_tbl_otm`
     FOREIGN KEY (`otm_id`)
-    REFERENCES `otm` (`id`)
+    REFERENCES `otm` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -60,12 +60,12 @@ CREATE TABLE IF NOT EXISTS `mto` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_mto_tbl1`
     FOREIGN KEY (`tbl_id`)
-    REFERENCES `tbl` (`id`)
+    REFERENCES `tbl` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_mto_otm1`
     FOREIGN KEY (`otm_id`)
-    REFERENCES `otm` (`id`)
+    REFERENCES `otm` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -91,12 +91,12 @@ CREATE TABLE IF NOT EXISTS `tbl_has_mtm` (
   PRIMARY KEY (`tbl_id`, `mtm_id`),
   CONSTRAINT `fk_tbl_has_mtm_tbl1`
     FOREIGN KEY (`tbl_id`)
-    REFERENCES `tbl` (`id`)
+    REFERENCES `tbl` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_tbl_has_mtm_mtm1`
     FOREIGN KEY (`mtm_id`)
-    REFERENCES `mtm` (`id`)
+    REFERENCES `mtm` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -112,11 +112,11 @@ CREATE TABLE IF NOT EXISTS `mto_has_mtm` (
   PRIMARY KEY (`mto_id`, `mtm_id`),
   CONSTRAINT `fk_mto_has_mtm_mto1`
     FOREIGN KEY (`mto_id`)
-    REFERENCES `mto` (`id`)
+    REFERENCES `mto` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_mto_has_mtm_mtm1`
     FOREIGN KEY (`mtm_id`)
-    REFERENCES `mtm` (`id`)
+    REFERENCES `mtm` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);

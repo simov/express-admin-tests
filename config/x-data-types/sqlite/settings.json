@@ -3,7 +3,7 @@
         "slug": "mtm",
         "table": {
             "name": "mtm",
-            "pk": "id",
+            "pk": "rowid",
             "verbose": "mtm"
         },
         "columns": [
@@ -435,7 +435,7 @@
         "slug": "otm",
         "table": {
             "name": "otm",
-            "pk": "id",
+            "pk": "rowid",
             "verbose": "otm"
         },
         "columns": [
