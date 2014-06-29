@@ -11,6 +11,7 @@
     "app": {
         "layouts": true,
         "themes": true,
-        "languages": true
+        "languages": true,
+        "upload": "/home/mighty/node/modules/express-admin-tests/test/data-types"
     }
 }

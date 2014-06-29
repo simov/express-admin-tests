@@ -769,8 +769,10 @@
             "show": true
         },
         "listview": {
-            "order": {},
-            "page": 5,
+            "order": {
+                "otm_id": "asc"
+            },
+            "page": 2,
             "filter": [
                 "otm_id",
                 "mtm",
