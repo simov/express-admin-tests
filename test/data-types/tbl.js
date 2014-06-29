@@ -121,8 +121,32 @@ describe('tbl', function () {
     });
 
     it('add 3 more records', function (done) {
-        $('a[href="/tbl"]')[0].click();
-        page.load(done);
+        var queries = [
+            "INSERT INTO `tbl` (`id`,`otm_id`,`static`,`text`,`boolean`,`int`,`decimal`,`upload`,`date`,`time`,`datetime`,`year`,`textarea`) \
+            VALUES ('e1AmGnGcel',2,'two','two',0,2,2.2,'two','2014-06-02','10:10','2014-06-02 10:10','2014','<p><em>two</em></p>') ; \
+            INSERT INTO `tbl_has_mtm` (`tbl_id`,`mtm_id`) VALUES ('e1AmGnGcel','2') ;",
+            
+            "INSERT INTO `tbl` (`id`,`otm_id`,`static`,`text`,`boolean`,`int`,`decimal`,`upload`,`date`,`time`,`datetime`,`year`,`textarea`) \
+            VALUES ('ekIHuTfqel',3,'three','three',1,3,3.3,'three','2014-06-03','10:30','2014-06-03 10:30','2014','<p><u>three</u></p>') ; \
+            INSERT INTO `tbl_has_mtm` (`tbl_id`,`mtm_id`) VALUES ('ekIHuTfqel','3') ;",
+
+            "INSERT INTO `tbl` (`id`,`otm_id`,`static`,`text`,`boolean`,`int`,`decimal`,`upload`,`date`,`time`,`datetime`,`year`,`textarea`) \
+            VALUES ('g1i_D0f5le',1,'one','one',1,1,1.1,'one','2014-06-04','10:40','2014-06-04 10:40','2014','<p><strong>four</strong></p>') ; \
+            INSERT INTO `tbl_has_mtm` (`tbl_id`,`mtm_id`) VALUES ('g1i_D0f5le','1'),('g1i_D0f5le','3') ;"
+        ];
+        async.eachSeries(queries, function (query, done) {
+            client.query(query, done);
+        }, function (err) {
+            if (err) return done(err);
+            $('a[href="/tbl"]')[0].click();
+            page.load(function () {
+                $('.x-table tbody tr').length.should.equal(2);
+                $('.pagination li').length.should.equal(4);
+                $('.pagination li:eq(0)').hasClass('active').should.equal(true);
+                $('.pagination li:eq(1) a').text().should.equal('2');
+                done();
+            });
+        });
     });
 
     after(function (done) {
