@@ -3,7 +3,7 @@
         "public": {
             "external": {
                 "js": [
-                    "//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.2/ckeditor.js"
+                    "//cdn.ckeditor.com/4.4.2/full/ckeditor.js"
                 ]
             },
             "local": {
