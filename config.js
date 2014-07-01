@@ -51,7 +51,7 @@ jQuery(function () {
         win = iframe.window;
 
         page.onload();
-        // setTimeout(function () {page.onload();}, 3000);
+        // setTimeout(function () {page.onload()}, 3000);
     });
 
     // wait until the iframe is loaded
@@ -138,6 +138,7 @@ jQuery(function () {
                     var file = '<script src="test/data-types/name.js"></script>';
                     jQuery('head').append(file.replace('name', 'otm'));
                     jQuery('head').append(file.replace('name', 'mtm'));
+                    jQuery('head').append(file.replace('name', 'tbl'));
                     break;
             }
             
