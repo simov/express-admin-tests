@@ -48,10 +48,11 @@ CREATE TABLE IF NOT EXISTS "x"."tbl" (
   "int" INT NOT NULL,
   "decimal" DECIMAL(4,2) NOT NULL,
   "upload" VARCHAR(45) NOT NULL,
-  "binary" BYTEA NOT NULL,
+  "binary" BYTEA NULL,
   "date" DATE NOT NULL,
   "time" TIME NOT NULL,
   "datetime" TIMESTAMP NOT NULL,
+  "year" INT NOT NULL,
   "textarea" TEXT NOT NULL,
   PRIMARY KEY ("id"),
   CONSTRAINT "otm_id"
@@ -80,6 +81,7 @@ CREATE TABLE IF NOT EXISTS "x"."mto" (
   "date" DATE NULL,
   "time" TIME NULL,
   "datetime" TIMESTAMP NULL,
+  "year" INT NULL,
   "textarea" TEXT NULL,
   PRIMARY KEY ("id"),
   CONSTRAINT "tbl_id"

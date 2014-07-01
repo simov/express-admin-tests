@@ -69,7 +69,7 @@
                 "allowNull": false,
                 "defaultValue": null,
                 "listview": {
-                    "show": false
+                    "show": true
                 },
                 "editview": {
                     "show": false
@@ -300,6 +300,22 @@
                 }
             },
             {
+                "name": "year",
+                "verbose": "year",
+                "control": {
+                    "number": true
+                },
+                "type": "integer",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
                 "name": "textarea",
                 "verbose": "textarea",
                 "control": {
@@ -337,6 +353,7 @@
                 "date",
                 "time",
                 "datetime",
+                "year",
                 "textarea"
             ]
         },
@@ -654,6 +671,22 @@
                     "datetime": true
                 },
                 "type": "timestamp",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "year",
+                "verbose": "year",
+                "control": {
+                    "number": true
+                },
+                "type": "integer",
                 "allowNull": true,
                 "defaultValue": null,
                 "listview": {

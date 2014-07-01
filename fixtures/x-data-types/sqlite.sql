@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `tbl` (
   `int` INT NOT NULL,
   `decimal` DECIMAL(4,2) NOT NULL,
   `upload` VARCHAR(45) NOT NULL,
-  `binary` BLOB NOT NULL,
+  `binary` BLOB NULL,
   `date` DATE NOT NULL,
   `time` TIME NOT NULL,
   `datetime` DATETIME NOT NULL,
