@@ -7,11 +7,11 @@ describe('tbl', function () {
             'mto2_has_mtm1', 'mto2_has_mtm2'], function (table, done) {
             client.query(sql.truncate(table), done);
         }, function () {
-            $('a[href="/tbl"]')[0].click();
+            $('a[href$="/tbl"]')[0].click();
             page.load(done);
         });
         // call just this when calling delete
-        // $('a[href="/tbl"]')[0].click();
+        // $('a[href$="/tbl"]')[0].click();
         // page.load(done);
     });
     it.skip('delete all records', function (done) {
@@ -35,7 +35,7 @@ describe('tbl', function () {
     });
     it('should be empty', function (done) {
         $('.x-table tbody tr').length.should.equal(0);
-        $('a[href="/tbl/add"]')[0].click();
+        $('a[href$="/tbl/add"]')[0].click();
         page.load(done);
     });
 
@@ -228,7 +228,7 @@ describe('tbl', function () {
 
         $('[name="action[another]"')[0].click();
         page.load(function () {
-            win.location.pathname.should.equal('/tbl/add');
+            win.location.pathname.should.match(/\/tbl\/add$/);
             $('.alert-success strong').text().should.equal('Success:');
             $('[name="view[tbl][records][0][columns][otm1_id]"] option:selected').val().should.equal('');
             $('[name="view[tbl][records][0][columns][otm2_id]"] option:selected').val().should.equal('');
@@ -466,7 +466,7 @@ describe('tbl', function () {
 
         $('[name="action[save]"')[0].click();
         page.load(function () {
-            win.location.pathname.should.equal('/tbl');
+            win.location.pathname.should.match(/\/tbl$/);
             $('.alert-success strong').text().should.equal('Success:');
             $('.x-table tbody tr').length.should.equal(2);
 
@@ -493,7 +493,7 @@ describe('tbl', function () {
     });
 
     after(function (done) {
-        $('a[href="/"]')[0].click();
+        $('a[href$="/"]')[0].click();
         page.load(done);
     });
 });

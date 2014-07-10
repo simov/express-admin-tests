@@ -4,10 +4,10 @@ describe('otm1', function () {
         client.query(sql.truncate('otm1'), done);
     });
     it('should be empty', function (done) {
-        $('a[href="/otm1"]')[0].click();
+        $('a[href$="/otm1"]')[0].click();
         page.load(function () {
             $('.x-table tbody tr').length.should.equal(0);
-            $('a[href="/otm1/add"]')[0].click();
+            $('a[href$="/otm1/add"]')[0].click();
             page.load(done);
         });
     });
@@ -15,7 +15,7 @@ describe('otm1', function () {
         $('[name="view[otm1][records][0][columns][name1]"]').val('otm1');
         $('[name="action[another]"')[0].click();
         page.load(function () {
-            win.location.pathname.should.equal('/otm1/add');
+            win.location.pathname.should.match(/\/otm1\/add$/);
             $('.alert-success strong').text().should.equal('Success:');
             $('[name="view[otm1][records][0][columns][name1]"]').val().should.equal('');
             done();
@@ -35,7 +35,7 @@ describe('otm1', function () {
         $('[name="view[otm1][records][0][columns][name1]"]').val('otm3');
         $('[name="action[save]"')[0].click();
         page.load(function () {
-            win.location.pathname.should.equal('/otm1');
+            win.location.pathname.should.match(/\/otm1$/);
             $('.alert-success strong').text().should.equal('Success:');
             $('.x-table tbody tr').length.should.equal(3);
             $('.x-table tbody tr:eq(0) a').text().should.equal('otm1');
@@ -45,7 +45,7 @@ describe('otm1', function () {
         });
     });
     after(function (done) {
-        $('a[href="/"]')[0].click();
+        $('a[href$="/"]')[0].click();
         page.load(done);
     });
 });

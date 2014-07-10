@@ -81,6 +81,24 @@ jQuery(function () {
                             console.log(e.toString().trim());
                         });
                     },
+                    
+                    // embedding
+                    // function (done) {
+                    // 	// start server
+                    // 	server = spawn('node',
+                    // 		['config/embedding/app.js', db, engine]);
+                    // 	server.stdout.on('data', function (e) {
+                    // 		if (e.toString().trim().match(/Express Admin listening.*/)) {
+                    // 			win.location = 'http://localhost:3000/admin/login';
+                    // 			page.load(done);
+                    // 		}
+                    // 		// else console.log(e.toString().trim());
+                    // 	});
+                    // 	server.stderr.on('data', function (e) {
+                    // 		console.log(e.toString().trim());
+                    // 	});
+                    // },
+
                     function (done) {
                         // reload login page
                         win.location.reload();
@@ -146,7 +164,7 @@ jQuery(function () {
                 async.series([
                     function (done) {
                         // logout
-                        $('[href="/logout"]')[0].click();
+                        $('[href$="/logout"]')[0].click();
                         page.load(done);
                     },
                     function (done) {

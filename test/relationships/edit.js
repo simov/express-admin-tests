@@ -1,7 +1,7 @@
 
 describe('edit', function () {
     before(function (done) {
-        $('a[href="/tbl"]')[0].click();
+        $('a[href$="/tbl"]')[0].click();
         page.load(function () {
             $('.x-table tbody tr:eq(0) a')[0].click();
             page.load(done);
@@ -271,7 +271,7 @@ describe('edit', function () {
     it('remove', function (done) {
         $('[name="action[remove]"')[0].click();
         page.load(function () {
-            win.location.pathname.should.equal('/tbl');
+            win.location.pathname.should.match(/\/tbl$/);
             $('.alert-success strong').text().should.equal('Success:');
             $('.x-table tbody tr').length.should.equal(2);
             $('.pagination li').length.should.equal(0);
@@ -280,7 +280,7 @@ describe('edit', function () {
     });
 
     after(function (done) {
-        $('a[href="/"]')[0].click();
+        $('a[href$="/"]')[0].click();
         page.load(done);
     });
 });

@@ -4,21 +4,21 @@ describe('tbl', function () {
         async.eachSeries(['tbl','mto','tbl_has_mtm','mto_has_mtm'], function (table, done) {
             client.query(sql.truncate(table, 'x'), done);
         }, function () {
-            $('a[href="/tbl"]')[0].click();
+            $('a[href$="/tbl"]')[0].click();
             page.load(done);
         });
     });
     
     it('should be empty', function (done) {
         $('.x-table tbody tr').length.should.equal(0);
-        $('a[href="/tbl/add"]')[0].click();
+        $('a[href$="/tbl/add"]')[0].click();
         page.load(done);
     });
 
     it('empty fields', function (done) {
         $('[name="action[save]"')[0].click();
         page.load(function () {
-            win.location.pathname.should.equal('/tbl/add');
+            win.location.pathname.should.match(/\/tbl\/add$/);
             $('.alert-danger strong').text().should.equal('Error:');
             $('.has-error').length.should.equal(13);
             done();
@@ -49,7 +49,7 @@ describe('tbl', function () {
         win.CKEDITOR.instances['view[tbl][records][0][columns][textarea]'].setData('<strong>one</strong>', function () {
             $('[name="action[save]"')[0].click();
             page.load(function () {
-                win.location.pathname.should.equal('/tbl/add');
+                win.location.pathname.should.match(/\/tbl\/add$/);
                 $('.alert-danger strong').text().should.equal('Error:');
                 $('.has-error').length.should.equal(1);
 
@@ -311,11 +311,11 @@ describe('tbl', function () {
     it('navigate to another page, return back, persist state', function (done) {
         async.series([
             function (done) {
-                $('[href="/"')[0].click();
+                $('[href$="/"')[0].click();
                 page.load(done);
             },
             function (done) {
-                $('[href="/tbl"]')[0].click();
+                $('[href$="/tbl"]')[0].click();
                 page.load(done);
             }	
         ], function () {
@@ -341,7 +341,7 @@ describe('tbl', function () {
     it('navigate to page 2, store record, redirect back to page 2', function (done) {
         async.series([
             function (done) {
-                $('[href="/tbl/?p=2"]')[0].click();
+                $('[href$="/tbl/?p=2"]')[0].click();
                 page.load(done);
             },
             function (done) {
@@ -353,7 +353,7 @@ describe('tbl', function () {
                 page.load(done);
             }
         ], function () {
-            win.location.pathname.should.equal('/tbl');
+            win.location.pathname.should.match(/\/tbl$/);
             win.location.search.should.equal('?p=2');
             $('.alert-success strong').text().should.equal('Success:');
 
@@ -376,7 +376,7 @@ describe('tbl', function () {
     });
 
     after(function (done) {
-        $('a[href="/"]')[0].click();
+        $('a[href$="/"]')[0].click();
         page.load(done);
     });
 });

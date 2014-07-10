@@ -4,10 +4,10 @@ describe('otm', function () {
         client.query(sql.truncate('otm', 'x'), done);
     });
     it('should be empty', function (done) {
-        $('a[href="/otm"]')[0].click();
+        $('a[href$="/otm"]')[0].click();
         page.load(function () {
             $('.x-table tbody tr').length.should.equal(0);
-            $('a[href="/otm/add"]')[0].click();
+            $('a[href$="/otm/add"]')[0].click();
             page.load(done);
         });
     });
@@ -31,7 +31,7 @@ describe('otm', function () {
                 page.load(done);
             }	
         ], function () {
-            win.location.pathname.should.equal('/otm');
+            win.location.pathname.should.match(/\/otm$/);
             $('.alert-success strong').text().should.equal('Success:');
             $('.x-table tbody tr').length.should.equal(3);
             $('.x-table tbody tr:eq(0) a').text().should.equal('a');
@@ -41,7 +41,7 @@ describe('otm', function () {
         });
     });
     after(function (done) {
-        $('a[href="/"]')[0].click();
+        $('a[href$="/"]')[0].click();
         page.load(done);
     });
 });

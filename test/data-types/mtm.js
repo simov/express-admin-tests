@@ -4,10 +4,10 @@ describe('mtm', function () {
         client.query(sql.truncate('mtm', 'x'), done);
     });
     it('should be empty', function (done) {
-        $('a[href="/mtm"]')[0].click();
+        $('a[href$="/mtm"]')[0].click();
         page.load(function () {
             $('.x-table tbody tr').length.should.equal(0);
-            $('a[href="/mtm/add"]')[0].click();
+            $('a[href$="/mtm/add"]')[0].click();
             page.load(done);
         });
     });
@@ -33,7 +33,7 @@ describe('mtm', function () {
                 page.load(done);
             }	
         ], function () {
-            win.location.pathname.should.equal('/mtm');
+            win.location.pathname.should.match(/\/mtm$/);
             $('.alert-success strong').text().should.equal('Success:');
             $('.x-table tbody tr').length.should.equal(3);
             $('.x-table tbody tr:eq(0) a').text().should.equal('a');
@@ -43,7 +43,7 @@ describe('mtm', function () {
         });
     });
     after(function (done) {
-        $('a[href="/"]')[0].click();
+        $('a[href$="/"]')[0].click();
         page.load(done);
     });
 });

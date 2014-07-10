@@ -1,7 +1,7 @@
 
 describe('filter', function () {
     before(function (done) {
-        $('a[href="/tbl"]')[0].click();
+        $('a[href$="/tbl"]')[0].click();
         page.load(done);
     });
 
@@ -132,7 +132,7 @@ describe('filter', function () {
     });
 
     after(function (done) {
-        $('a[href="/"]')[0].click();
+        $('a[href$="/"]')[0].click();
         page.load(done);
     });
 });
