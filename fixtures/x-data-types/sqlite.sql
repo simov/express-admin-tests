@@ -120,3 +120,13 @@ CREATE TABLE IF NOT EXISTS `mto_has_mtm` (
     REFERENCES `mtm` (`rowid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table `self_ref`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `self_ref` ;
+
+CREATE TABLE IF NOT EXISTS `self_ref` (
+  `name` VARCHAR(45) NOT NULL,
+  `parent` INT NULL);

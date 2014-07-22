@@ -157,6 +157,7 @@ jQuery(function () {
                     jQuery('head').append(file.replace('name', 'otm'));
                     jQuery('head').append(file.replace('name', 'mtm'));
                     jQuery('head').append(file.replace('name', 'tbl'));
+                    jQuery('head').append(file.replace('name', 'selfref'));
                     break;
             }
             

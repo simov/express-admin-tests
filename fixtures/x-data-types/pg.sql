@@ -148,3 +148,15 @@ CREATE TABLE IF NOT EXISTS "x"."mto_has_mtm" (
     REFERENCES "x"."mtm" ("id")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+
+-- -----------------------------------------------------
+-- Table "self_ref"
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS "x"."self_ref" ;
+
+CREATE TABLE IF NOT EXISTS "x"."self_ref" (
+  "id" SERIAL NOT NULL,
+  "name" VARCHAR(45) NOT NULL,
+  "parent" INT NULL,
+  PRIMARY KEY ("id"));

@@ -850,5 +850,80 @@
         "editview": {
             "readonly": false
         }
+    },
+    "self_ref": {
+        "slug": "self_ref",
+        "table": {
+            "name": "self_ref",
+            "pk": "id",
+            "verbose": "self_ref"
+        },
+        "columns": [
+            {
+                "name": "id",
+                "verbose": "id",
+                "control": {
+                    "text": true
+                },
+                "type": "int(11)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": false
+                }
+            },
+            {
+                "name": "name",
+                "verbose": "name",
+                "control": {
+                    "text": true
+                },
+                "type": "varchar(45)",
+                "allowNull": false,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            },
+            {
+                "name": "parent",
+                "verbose": "parent",
+                "control": {
+                    "select": true
+                },
+                "oneToMany": {
+                    "table": "self_ref",
+                    "pk": "id",
+                    "columns": [
+                        "name"
+                    ]
+                },
+                "type": "int(11)",
+                "allowNull": true,
+                "defaultValue": null,
+                "listview": {
+                    "show": true
+                },
+                "editview": {
+                    "show": true
+                }
+            }
+        ],
+        "mainview": {
+            "show": true
+        },
+        "listview": {
+            "order": {},
+            "page": 25
+        },
+        "editview": {
+            "readonly": false
+        }
     }
 }

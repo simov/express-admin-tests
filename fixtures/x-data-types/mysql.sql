@@ -146,6 +146,19 @@ CREATE TABLE IF NOT EXISTS `mto_has_mtm` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `self_ref`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `self_ref` ;
+
+CREATE TABLE IF NOT EXISTS `self_ref` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `parent` INT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
