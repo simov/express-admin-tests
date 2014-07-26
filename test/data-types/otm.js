@@ -1,7 +1,7 @@
 
 describe('otm', function () {
     before(function (done) {
-        client.query(sql.truncate('otm', 'x'), done);
+        client.query(sql.truncate('otm', 'y'), done);
     });
     it('should be empty', function (done) {
         $('a[href$="/otm"]')[0].click();

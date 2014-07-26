@@ -3,6 +3,7 @@
         "slug": "otm",
         "table": {
             "name": "otm",
+            "schema": "y",
             "pk": "id",
             "verbose": "otm"
         },
@@ -83,6 +84,7 @@
                 },
                 "oneToMany": {
                     "table": "otm",
+                    "schema": "y",
                     "pk": "id",
                     "columns": [
                         "name1"
@@ -121,6 +123,7 @@
                     },
                     "ref": {
                         "table": "mtm",
+                        "schema": "y",
                         "pk": "id",
                         "columns": [
                             "name1",
@@ -464,6 +467,7 @@
                 },
                 "oneToMany": {
                     "table": "otm",
+                    "schema": "y",
                     "pk": "id",
                     "columns": [
                         "name1"
@@ -502,6 +506,7 @@
                     },
                     "ref": {
                         "table": "mtm",
+                        "schema": "y",
                         "pk": "id",
                         "columns": [
                             "name1",
@@ -729,6 +734,7 @@
         "slug": "mtm",
         "table": {
             "name": "mtm",
+            "schema": "y",
             "pk": "id",
             "verbose": "mtm"
         },

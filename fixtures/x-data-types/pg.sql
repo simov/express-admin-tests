@@ -26,9 +26,9 @@ ALTER TABLE "x"."mto" DROP CONSTRAINT "tbl_id";
 -- -----------------------------------------------------
 -- Table "otm"
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS "x"."otm" ;
+DROP TABLE IF EXISTS "y"."otm" ;
 
-CREATE TABLE IF NOT EXISTS "x"."otm" (
+CREATE TABLE IF NOT EXISTS "y"."otm" (
   "id" SERIAL NOT NULL,
   "name1" VARCHAR(45) NOT NULL,
   PRIMARY KEY ("id"));
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS "x"."tbl" (
   PRIMARY KEY ("id"),
   CONSTRAINT "otm_id"
     FOREIGN KEY ("otm_id")
-    REFERENCES "x"."otm" ("id")
+    REFERENCES "y"."otm" ("id")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS "x"."mto" (
     ON UPDATE NO ACTION,
   CONSTRAINT "otm_id"
     FOREIGN KEY ("otm_id")
-    REFERENCES "x"."otm" ("id")
+    REFERENCES "y"."otm" ("id")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -99,9 +99,9 @@ CREATE TABLE IF NOT EXISTS "x"."mto" (
 -- -----------------------------------------------------
 -- Table "mtm"
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS "x"."mtm" ;
+DROP TABLE IF EXISTS "y"."mtm" ;
 
-CREATE TABLE IF NOT EXISTS "x"."mtm" (
+CREATE TABLE IF NOT EXISTS "y"."mtm" (
   "id" SERIAL NOT NULL,
   "name1" VARCHAR(45) NOT NULL,
   "name2" INT NULL,
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS "x"."tbl_has_mtm" (
     ON UPDATE NO ACTION,
   CONSTRAINT "mtm_id"
     FOREIGN KEY ("mtm_id")
-    REFERENCES "x"."mtm" ("id")
+    REFERENCES "y"."mtm" ("id")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS "x"."mto_has_mtm" (
     ON UPDATE NO ACTION,
   CONSTRAINT "mtm_id"
     FOREIGN KEY ("mtm_id")
-    REFERENCES "x"."mtm" ("id")
+    REFERENCES "y"."mtm" ("id")
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -160,3 +160,35 @@ CREATE TABLE IF NOT EXISTS "x"."self_ref" (
   "name" VARCHAR(45) NOT NULL,
   "parent" INT NULL,
   PRIMARY KEY ("id"));
+
+
+-- -----------------------------------------------------
+-- Grants
+-- -----------------------------------------------------
+grant all on database "x-data-types" to liolio;
+
+grant all on schema "x" to liolio;
+grant all on all tables in schema "x" to liolio;
+grant all on all sequences in schema "x" to liolio;
+
+grant all on schema "y" to liolio;
+grant all on all tables in schema "y" to liolio;
+grant all on all sequences in schema "y" to liolio;
+
+
+-- -----------------------------------------------------
+-- Owner
+-- -----------------------------------------------------
+alter table "x"."tbl" owner to liolio;
+alter table "x"."tbl_has_mtm" owner to liolio;
+alter table "x"."mto" owner to liolio;
+alter table "x"."mto_has_mtm" owner to liolio;
+alter table "x"."self_ref" owner to liolio;
+
+alter table "y"."otm" owner to liolio;
+alter table "y"."mtm" owner to liolio;
+
+alter sequence "x"."self_ref_id_seq" owner to liolio;
+
+alter sequence "y"."otm_id_seq" owner to liolio;
+alter sequence "y"."mtm_id_seq" owner to liolio;

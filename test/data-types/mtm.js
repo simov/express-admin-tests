@@ -1,7 +1,7 @@
 
 describe('mtm', function () {
     before(function (done) {
-        client.query(sql.truncate('mtm', 'x'), done);
+        client.query(sql.truncate('mtm', 'y'), done);
     });
     it('should be empty', function (done) {
         $('a[href$="/mtm"]')[0].click();
