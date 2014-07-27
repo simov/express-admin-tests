@@ -140,7 +140,9 @@
                     "options": [
                         "one",
                         "two",
-                        "three"
+                        {
+                            "three": "third option"
+                        }
                     ]
                 },
                 "type": "varchar(45)",

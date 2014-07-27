@@ -25,6 +25,31 @@ describe('tbl', function () {
         });
     });
 
+    it('populate select controls', function (done) {
+        // otm
+        $('[name="view[tbl][records][0][columns][otm_id]"] option:eq(1)').val().should.equal('1');
+        $('[name="view[tbl][records][0][columns][otm_id]"] option:eq(1)').text().trim().should.equal('a');
+        $('[name="view[tbl][records][0][columns][otm_id]"] option:eq(2)').val().should.equal('2');
+        $('[name="view[tbl][records][0][columns][otm_id]"] option:eq(2)').text().trim().should.equal('b');
+        $('[name="view[tbl][records][0][columns][otm_id]"] option:eq(3)').val().should.equal('3');
+        $('[name="view[tbl][records][0][columns][otm_id]"] option:eq(3)').text().trim().should.equal('c');
+        // otm
+        $('[name="view[tbl][records][0][columns][mtm]"] option:eq(1)').val().should.equal('1');
+        $('[name="view[tbl][records][0][columns][mtm]"] option:eq(1)').text().trim().should.equal('a 1');
+        $('[name="view[tbl][records][0][columns][mtm]"] option:eq(2)').val().should.equal('2');
+        $('[name="view[tbl][records][0][columns][mtm]"] option:eq(2)').text().trim().should.equal('b');
+        $('[name="view[tbl][records][0][columns][mtm]"] option:eq(3)').val().should.equal('3');
+        $('[name="view[tbl][records][0][columns][mtm]"] option:eq(3)').text().trim().should.equal('c 3');
+        // static
+        $('[name="view[tbl][records][0][columns][static]"] option:eq(1)').val().should.equal('one');
+        $('[name="view[tbl][records][0][columns][static]"] option:eq(1)').text().trim().should.equal('one');
+        $('[name="view[tbl][records][0][columns][static]"] option:eq(2)').val().should.equal('two');
+        $('[name="view[tbl][records][0][columns][static]"] option:eq(2)').text().trim().should.equal('two');
+        $('[name="view[tbl][records][0][columns][static]"] option:eq(3)').val().should.equal('three');
+        $('[name="view[tbl][records][0][columns][static]"] option:eq(3)').text().trim().should.equal('third option');
+        done();
+    });
+
     it('persist state', function (done) {
         // otm
         $('[name="view[tbl][records][0][columns][otm_id]"] option:eq(1)').attr('selected',true);
