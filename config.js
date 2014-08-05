@@ -6,6 +6,7 @@ var Mocha = require('mocha');
 var mocha = new Mocha;
 mocha.reporter('loca');
 mocha.bail(true);
+mocha.slow(1000);
 mocha.timeout(1000*60*60);
 // pass the browser context
 mocha.suite.emit('pre-require', window, null, mocha);
