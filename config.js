@@ -30,6 +30,7 @@ var server = null;
 // misc
 var spawn = require('child_process').spawn,
     async = require('async');
+var aw = require('ansi-webkit')
 // 
 var Client = require('./lib/client'),
     sql = require('./lib/sql');
@@ -77,6 +78,7 @@ jQuery(function () {
                             if (e.toString().trim().match(/Express Admin listening.*/))
                                 done();
                             // else console.log(e.toString().trim());
+                            // else console.log.apply(console, aw.parse(e.toString().trim()));
                         });
                         server.stderr.on('data', function (e) {
                             console.log(e.toString().trim());
