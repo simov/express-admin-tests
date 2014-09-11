@@ -67,8 +67,8 @@ describe('tbl', function () {
         $('[name="view[tbl][records][0][columns][decimal]"]').val('1.1');
 
         $('[name="view[tbl][records][0][columns][date]"]').val('2014-06-01').datetimepicker('update');
-        $('[name="view[tbl][records][0][columns][time]"]').val('10:00').datetimepicker('update');
-        $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-01 10:00').datetimepicker('update');
+        $('[name="view[tbl][records][0][columns][time]"]').val('20:00:00').datetimepicker('update');
+        $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-01 20:00:00').datetimepicker('update');
         $('[name="view[tbl][records][0][columns][year]"]').val('2014');
 
         win.CKEDITOR.instances['view[tbl][records][0][columns][textarea]'].setData('<strong>one</strong>', function () {
@@ -91,8 +91,8 @@ describe('tbl', function () {
                 $('[name="view[tbl][records][0][columns][decimal]"]').val().should.equal('1.1');
 
                 $('[name="view[tbl][records][0][columns][date]"]').val().should.equal('2014-06-01');
-                $('[name="view[tbl][records][0][columns][time]"]').val().should.equal('10:00');
-                $('[name="view[tbl][records][0][columns][datetime]"]').val().should.equal('2014-06-01 10:00:00');
+                $('[name="view[tbl][records][0][columns][time]"]').val().should.equal('20:00:00');
+                $('[name="view[tbl][records][0][columns][datetime]"]').val().should.equal('2014-06-01 20:00:00');
 
                 win.CKEDITOR.instances['view[tbl][records][0][columns][textarea]'].getData().trim().should.equal('<p><strong>one</strong></p>');
 
@@ -141,6 +141,19 @@ describe('tbl', function () {
         page.load(function () {
             $('.alert-success strong').text().should.equal('Success:');
             $('[name="manyToOne[mto][records][0][remove]"]').length.should.equal(1);
+
+            $('[name="view[tbl][records][0][columns][text]"]').val().should.equal('one');
+            $('[name="view[tbl][records][0][columns][boolean]"]:eq(0)').attr('checked').should.equal('checked');
+            $('[name="view[tbl][records][0][columns][int]"]').val().should.equal('1');
+            $('[name="view[tbl][records][0][columns][decimal]"]').val().should.match(/1.10?/);
+
+            $('[name="view[tbl][records][0][columns][date]"]').val().should.equal('2014-06-01');
+            $('[name="view[tbl][records][0][columns][time]"]').val().should.equal('20:00:00');
+            $('[name="view[tbl][records][0][columns][datetime]"]').val().should.equal('2014-06-01 20:00:00');
+            $('[name="view[tbl][records][0][columns][year]"]').val().should.equal('2014');
+
+            win.CKEDITOR.instances['view[tbl][records][0][columns][textarea]'].getData().trim().should.equal('<p><strong>one</strong></p>');
+
             $('[name="action[another]"')[0].click();
             page.load(done);
         });
@@ -160,8 +173,8 @@ describe('tbl', function () {
                 $('[name="view[tbl][records][0][columns][upload]"]:eq(0)').val('two');
 
                 $('[name="view[tbl][records][0][columns][date]"]').val('2014-06-02').datetimepicker('update');
-                $('[name="view[tbl][records][0][columns][time]"]').val('10:10').datetimepicker('update');
-                $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-02 10:10').datetimepicker('update');
+                $('[name="view[tbl][records][0][columns][time]"]').val('10:10:00').datetimepicker('update');
+                $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-02 10:10:00').datetimepicker('update');
                 $('[name="view[tbl][records][0][columns][year]"]').val('2014');
                 win.CKEDITOR.instances['view[tbl][records][0][columns][textarea]'].setData('<em>two</em>', function () {
                     $('[name="action[another]"')[0].click();
@@ -180,8 +193,8 @@ describe('tbl', function () {
                 $('[name="view[tbl][records][0][columns][upload]"]:eq(0)').val('three');
 
                 $('[name="view[tbl][records][0][columns][date]"]').val('2014-06-03').datetimepicker('update');
-                $('[name="view[tbl][records][0][columns][time]"]').val('10:30').datetimepicker('update');
-                $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-03 10:30').datetimepicker('update');
+                $('[name="view[tbl][records][0][columns][time]"]').val('12:00:00').datetimepicker('update');
+                $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-03 12:00:00').datetimepicker('update');
                 $('[name="view[tbl][records][0][columns][year]"]').val('2014');
                 win.CKEDITOR.instances['view[tbl][records][0][columns][textarea]'].setData('<u>three</u>', function () {
                     $('[name="action[another]"')[0].click();
@@ -201,8 +214,8 @@ describe('tbl', function () {
                 $('[name="view[tbl][records][0][columns][upload]"]:eq(0)').val('one');
 
                 $('[name="view[tbl][records][0][columns][date]"]').val('2014-06-04').datetimepicker('update');
-                $('[name="view[tbl][records][0][columns][time]"]').val('10:40').datetimepicker('update');
-                $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-04 10:40').datetimepicker('update');
+                $('[name="view[tbl][records][0][columns][time]"]').val('20:30:00').datetimepicker('update');
+                $('[name="view[tbl][records][0][columns][datetime]"]').val('2014-06-04 20:30:00').datetimepicker('update');
                 $('[name="view[tbl][records][0][columns][year]"]').val('2014');
                 win.CKEDITOR.instances['view[tbl][records][0][columns][textarea]'].setData('<strong>four</strong>', function () {
                     $('[name="action[save]"')[0].click();
@@ -211,6 +224,24 @@ describe('tbl', function () {
             }
         ], function () {
             $('.x-table tbody tr').length.should.equal(2);
+
+            $('.x-table tbody tr:eq(0) td:eq(1)').text().trim().should.equal('a');
+            $('.x-table tbody tr:eq(0) td:eq(2)').html().trim().should.equal(
+                '<span class="label label-default">a 1</span><span class="label label-default">c 3</span>'
+            );
+            $('.x-table tbody tr:eq(0) td:eq(3)').text().trim().should.equal('one');
+            $('.x-table tbody tr:eq(0) td:eq(4)').text().trim().should.equal('one');
+            $('.x-table tbody tr:eq(0) td:eq(5)').text().trim().should.equal('true');
+            $('.x-table tbody tr:eq(0) td:eq(6)').text().trim().should.equal('1');
+            $('.x-table tbody tr:eq(0) td:eq(7)').text().trim().should.match(/1.10?/);
+            $('.x-table tbody tr:eq(0) td:eq(8)').text().trim().should.equal('one');
+            $('.x-table tbody tr:eq(0) td:eq(9)').text().trim().should.equal('');
+            $('.x-table tbody tr:eq(0) td:eq(10)').text().trim().should.equal('Wed Jun 04 2014');
+            $('.x-table tbody tr:eq(0) td:eq(11)').text().trim().should.equal('20:30:00');
+            $('.x-table tbody tr:eq(0) td:eq(12)').text().trim().should.equal('Wed Jun 04 2014 20:30:00');
+            $('.x-table tbody tr:eq(0) td:eq(13)').text().trim().should.equal('2014');
+            $('.x-table tbody tr:eq(0) td:eq(14)').text().trim().should.equal('<p><strong>four</strong></p>');
+
             $('.pagination li').length.should.equal(4);
             $('.pagination li:eq(0)').hasClass('active').should.equal(true);
             $('.pagination li:eq(1) a').text().should.equal('2');
@@ -239,10 +270,10 @@ describe('tbl', function () {
 
         $('[name="filter[date]"]:eq(0)').val('2014-06-01').datetimepicker('update');
         $('[name="filter[date]"]:eq(1)').val('2014-06-04').datetimepicker('update');
-        $('[name="filter[time]"]:eq(0)').val('10:00').datetimepicker('update');
-        $('[name="filter[time]"]:eq(1)').val('10:40').datetimepicker('update');
-        $('[name="filter[datetime]"]:eq(0)').val('2014-06-01 10:00').datetimepicker('update');
-        $('[name="filter[datetime]"]:eq(1)').val('2014-06-04 10:40').datetimepicker('update');
+        $('[name="filter[time]"]:eq(0)').val('10:00:00').datetimepicker('update');
+        $('[name="filter[time]"]:eq(1)').val('20:30:00').datetimepicker('update');
+        $('[name="filter[datetime]"]:eq(0)').val('2014-06-01 10:00:00').datetimepicker('update');
+        $('[name="filter[datetime]"]:eq(1)').val('2014-06-04 20:30:00').datetimepicker('update');
         $('[name="filter[year]"]').val('2014');
 
         $('[name="action[filter]"]')[0].click();
@@ -260,9 +291,12 @@ describe('tbl', function () {
             $('[name="filter[upload]"]').val().should.equal('one');
             $('[name="filter[textarea]"]').val().should.equal('strong');
 
-            $('[name="filter[date]"]').val().should.equal('2014-06-01');
-            $('[name="filter[time]"]').val().should.equal('10:00');
-            $('[name="filter[datetime]"]').val().should.equal('2014-06-01 10:00');
+            $('[name="filter[date]"]:eq(0)').val().should.equal('2014-06-01');
+            $('[name="filter[date]"]:eq(1)').val().should.equal('2014-06-04');
+            $('[name="filter[time]"]:eq(0)').val().should.equal('10:00:00');
+            $('[name="filter[time]"]:eq(1)').val().should.equal('20:30:00');
+            $('[name="filter[datetime]"]:eq(0)').val().should.equal('2014-06-01 10:00:00');
+            $('[name="filter[datetime]"]:eq(1)').val().should.equal('2014-06-04 20:30:00');
             
             $('.x-table tbody tr').length.should.equal(2);
             $('.x-table tbody tr:eq(0) td:eq(1)').text().trim().should.equal('a');
@@ -292,7 +326,7 @@ describe('tbl', function () {
 
             $('.x-table tbody tr').length.should.equal(2);
             $('.x-table tbody tr:eq(0) td:eq(1)').text().trim().should.equal('a');
-            $('.x-table tbody tr:eq(1) td:eq(1)').text().trim().should.equal('b');
+            $('.x-table tbody tr:eq(1) td:eq(1)').text().trim().should.equal('c');
 
             $('.pagination li').length.should.equal(4);
             $('.pagination li:eq(0)').hasClass('active').should.equal(true);
