@@ -2,6 +2,7 @@
     "name": "express-admin-tests",
     "version": "1.0.0",
     "description": "Express Admin Tests",
+    "private": true,
     "keywords": [],
     "license"   : "MIT",
     "homepage"  : "https://github.com/simov/express-admin-tests",
@@ -20,8 +21,8 @@
         "jquery"  : "2.1.1",
         "async"   : "0.9.0",
         "mysql"   : "2.2.0",
-        "pg"      : "3.2.0",
-        "sqlite3" : "2.2.3",
+        "pg"      : "4.3.0",
+        "sqlite3" : "3.0.5",
         "shortid" : "2.0.0",
         "ansi-webkit" : "1.0.0"
     },
