@@ -32,12 +32,24 @@ grant all on all sequences in schema "public" to liolio;
 
 #### Install
 ```bash
-$ npm install
-$ cd node_modules/pg
-$ nw-gyp rebuild --target=0.8.6 # node-webkit version
-$ cd node_modules/sqlite3
-$ node-pre-gyp build --runtime=node-webkit --target=0.8.6 
-$ nw .
+npm install -g node-gyp nw-gyp node-pre-gyp
+npm install -g express-admin
+
+# build sqlite3 for node@0.10.x
+nvm use 10
+npm install -g sqlite3@3.0.5
+
+# build sqlite3 for node@0.12.x
+nvm use 12
+npm install -g sqlite3@3.0.5
+
+# build sqlite3 for nw@0.8.6
+cd express-admin-tests
+npm install
+npm install sqlite3 --build-from-source --runtime=node-webkit --target_arch=x64 --target=0.8.6
+
+# run the tests
+nw .
 ```
 
   [0]: https://github.com/simov/express-admin
