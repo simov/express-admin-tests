@@ -1,9 +1,12 @@
 
 # Express Admin Tests
+
 System tests for [Express Admin][0]
 
-#### Database
+## Database
+
 _x-relationships-single_, _x-relationships-compound_, _x-data-types_
+
 ```sql
 -- mysql
 create schema `x-relationships-single` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
@@ -11,14 +14,21 @@ create schema `x-relationships-single` DEFAULT CHARACTER SET utf8 COLLATE utf8_g
 create database "x-relationships-single";
 ```
 
-#### Import
+
+## Import
+
 ```bash
-$ mysql -p --user=root 'x-relationships-single' < fixtures/x-relationships-single/mysql.sql
-$ sudo -u postgres psql 'x-relationships-single' < fixtures/x-relationships-single/pg.sql
+# mysql
+mysql -p --user=root 'x-relationships-single' < fixtures/x-relationships-single/mysql.sql
+# pg
+sudo -u postgres psql 'x-relationships-single' < fixtures/x-relationships-single/pg.sql
+# sqlite
 $ node fixtures/sqlite-import.js x-relationships-single
 ```
 
-#### Grants
+
+## Grants
+
 ```sql
 -- mysql
 grant all on `x-relationships-single`.* to liolio@localhost ;
@@ -28,9 +38,23 @@ grant all on database "x-relationships-single" to liolio;
 grant all on schema "public" to liolio;
 grant all on all tables in schema "public" to liolio;
 grant all on all sequences in schema "public" to liolio;
+ALTER USER liolio VALID UNTIL 'infinity';
 ```
 
-#### Install
+
+## Install
+
+```bash
+npm i
+```
+
+The NW.js SDK version is required for DevTools to be available:
+
+```bash
+export NODE_WEBKIT_VERSION="v0.32.1"
+export PATH="/home/s/software/nwjs-sdk-$NODE_WEBKIT_VERSION-linux-x64:$PATH"
+```
+
 ```bash
 npm install -g node-gyp nw-gyp node-pre-gyp
 npm install -g express-admin
