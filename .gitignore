@@ -17,3 +17,4 @@ npm-debug.log
 node_modules
 coverage
 config/embedding/node_modules
+package-lock.json
