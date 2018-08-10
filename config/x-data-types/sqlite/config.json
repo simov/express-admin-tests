@@ -1,6 +1,6 @@
 {
     "sqlite": {
-        "database": "/home/mighty/node/modules/express-admin-tests/fixtures/x-data-types/x-data-types.sqlite"
+        "database": "/home/s/projects/express-admin-tests/fixtures/x-data-types/x-data-types.sqlite"
     },
     "server": {
         "port": 3000
@@ -9,6 +9,6 @@
         "layouts": true,
         "themes": true,
         "languages": true,
-        "upload": "/home/mighty/node/modules/express-admin-tests/test/data-types"
+        "upload": "/home/s/projects/express-admin-tests/test/data-types"
     }
 }

@@ -1,6 +1,6 @@
 {
     "sqlite": {
-        "database": "/home/mighty/node/modules/express-admin-tests/fixtures/x-relationships-compound/x-relationships-compound.sqlite"
+        "database": "/home/s/projects/express-admin-tests/fixtures/x-relationships-compound/x-relationships-compound.sqlite"
     },
     "server": {
         "port": 3000
