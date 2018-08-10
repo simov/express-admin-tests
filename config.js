@@ -1,6 +1,8 @@
 
 // show the dev tools by default
-require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
+require('nw.gui').Window.get().showDevTools(null, function (_win) {
+	// _win.resizeTo(800, 1000);
+});
 
 var Mocha = require('mocha');
 var mocha = new Mocha;
@@ -31,16 +33,16 @@ var server = null;
 var spawn = require('child_process').spawn,
     async = require('async');
 var aw = require('ansi-webkit')
-// 
+//
 var Client = require('./lib/client'),
     sql = require('./lib/sql');
 
-var __dirname = '/home/mighty/node/modules/express-admin-tests';
+var __dirname = '/home/s/projects/express-admin-tests';
 
 
 jQuery(function () {
     jQuery('body')
-        .append('<iframe id="iframe" src="http://admin/login"></iframe>');
+        .append('<iframe id="iframe" src="http://localhost:3000/login"></iframe>');
 
     jQuery('#iframe').on('load', function (e) {
         iframe = {
@@ -84,7 +86,7 @@ jQuery(function () {
                             console.log(e.toString().trim());
                         });
                     },
-                    
+
                     // embedding
                     // function (done) {
                     // 	// start server
@@ -163,7 +165,7 @@ jQuery(function () {
                     jQuery('head').append(file.replace('name', 'selfref'));
                     break;
             }
-            
+
             after(function (done) {
                 async.series([
                     function (done) {
@@ -180,7 +182,7 @@ jQuery(function () {
                         // close server process
                         server.kill('SIGHUP');
                         done();
-                    }	
+                    }
                 ], done);
             });
         });
