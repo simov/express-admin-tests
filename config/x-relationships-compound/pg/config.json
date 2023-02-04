@@ -1,15 +1,11 @@
 {
-    "pg": {
-        "database": "x-relationships-compound",
-        "user": "liolio",
-        "password": "karamba"
-    },
-    "server": {
-        "port": 3000
-    },
-    "app": {
-        "layouts": true,
-        "themes": true,
-        "languages": true
-    }
+  "pg": {
+    "database": "x-relationships-compound",
+    "user": "postgres",
+    "password": "x-admin",
+    "port": 8234
+  },
+  "admin": {
+    "settings": "/home/s/git/express-admin-tests/config/x-relationships-compound/pg/settings.json"
+  }
 }

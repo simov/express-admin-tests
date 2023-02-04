@@ -172,30 +172,30 @@ CREATE TABLE IF NOT EXISTS "x"."self_ref" (
 -- -----------------------------------------------------
 -- Grants
 -- -----------------------------------------------------
-grant all on database "x-data-types" to liolio;
+grant all on database "x-data-types" to postgres;
 
-grant all on schema "x" to liolio;
-grant all on all tables in schema "x" to liolio;
-grant all on all sequences in schema "x" to liolio;
+grant all on schema "x" to postgres;
+grant all on all tables in schema "x" to postgres;
+grant all on all sequences in schema "x" to postgres;
 
-grant all on schema "y" to liolio;
-grant all on all tables in schema "y" to liolio;
-grant all on all sequences in schema "y" to liolio;
+grant all on schema "y" to postgres;
+grant all on all tables in schema "y" to postgres;
+grant all on all sequences in schema "y" to postgres;
 
 
 -- -----------------------------------------------------
 -- Owner
 -- -----------------------------------------------------
-alter table "x"."tbl" owner to liolio;
-alter table "x"."tbl_has_mtm" owner to liolio;
-alter table "x"."mto" owner to liolio;
-alter table "x"."mto_has_mtm" owner to liolio;
-alter table "x"."self_ref" owner to liolio;
+alter table "x"."tbl" owner to postgres;
+alter table "x"."tbl_has_mtm" owner to postgres;
+alter table "x"."mto" owner to postgres;
+alter table "x"."mto_has_mtm" owner to postgres;
+alter table "x"."self_ref" owner to postgres;
 
-alter table "y"."otm" owner to liolio;
-alter table "y"."mtm" owner to liolio;
+alter table "y"."otm" owner to postgres;
+alter table "y"."mtm" owner to postgres;
 
-alter sequence "x"."self_ref_id_seq" owner to liolio;
+alter sequence "x"."self_ref_id_seq" owner to postgres;
 
-alter sequence "y"."otm_id_seq" owner to liolio;
-alter sequence "y"."mtm_id_seq" owner to liolio;
+alter sequence "y"."otm_id_seq" owner to postgres;
+alter sequence "y"."mtm_id_seq" owner to postgres;

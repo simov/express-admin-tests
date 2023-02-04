@@ -1,17 +1,13 @@
 {
-    "pg": {
-        "database": "x-data-types",
-        "user": "liolio",
-        "password": "karamba",
-        "schema": "x"
-    },
-    "server": {
-        "port": 3000
-    },
-    "app": {
-        "layouts": true,
-        "themes": true,
-        "languages": true,
-        "upload": "/home/s/projects/express-admin-tests/test/data-types"
-    }
+  "pg": {
+    "database": "x-data-types",
+    "user": "postgres",
+    "password": "x-admin",
+    "port": 8234,
+    "schema": "x"
+  },
+  "admin": {
+    "settings": "/home/s/git/express-admin-tests/config/x-data-types/pg/settings.json",
+    "upload": "/home/s/git/express-admin-tests/test/data-types"
+  }
 }

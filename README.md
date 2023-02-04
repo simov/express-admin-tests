@@ -1,79 +1,109 @@
 
 # Express Admin Tests
 
-System tests for [Express Admin][0]
+> _Integration tests for [Express Admin]_
 
-## Database
+## Environment
 
-_x-relationships-single_, _x-relationships-compound_, _x-data-types_
+- node >= 14
+- npm
+- docker
+- docker-compose
+- nw
 
+## MySQL
+
+```bash
+# start MySQL database server (pick one)
+docker-compose up mysql
+docker-compose up mysql5
+docker-compose up mariadb
+# login to the running container (pick one)
+docker exec -it x-admin-mysql bash
+docker exec -it x-admin-mysql-5 bash
+docker exec -it x-admin-mariadb bash
+# login to mysql
+mysql -u root -p
+```
 ```sql
--- mysql
+-- create database
 create schema `x-relationships-single` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
--- pg
-create database "x-relationships-single";
+create schema `x-relationships-compound` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+create schema `x-data-types` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 ```
-
-
-## Import
-
 ```bash
-# mysql
+# import schema
 mysql -p --user=root 'x-relationships-single' < fixtures/x-relationships-single/mysql.sql
-# pg
-sudo -u postgres psql 'x-relationships-single' < fixtures/x-relationships-single/pg.sql
-# sqlite
-$ node fixtures/sqlite-import.js x-relationships-single
+mysql -p --user=root 'x-relationships-compound' < fixtures/x-relationships-compound/mysql.sql
+mysql -p --user=root 'x-data-types' < fixtures/x-data-types/mysql.sql
 ```
 
+## PostgreSQL
 
-## Grants
-
+```bash
+# start PostgreSQL database server (pick one)
+docker-compose up pg
+docker-compose up pg9
+# login to the running container (pick one)
+docker exec -it x-admin-pg bash
+docker exec -it x-admin-pg-9 bash
+# login to psql
+psql -U postgres
+```
 ```sql
--- mysql
-grant all on `x-relationships-single`.* to liolio@localhost ;
--- pg
-\c "x-relationships-single"
-grant all on database "x-relationships-single" to liolio;
-grant all on schema "public" to liolio;
-grant all on all tables in schema "public" to liolio;
-grant all on all sequences in schema "public" to liolio;
-ALTER USER liolio VALID UNTIL 'infinity';
+# create database
+create database "x-relationships-single";
+create database "x-relationships-compound";
+create database "x-data-types";
+```
+```bash
+# import schema
+psql -U postgres 'x-relationships-single' < fixtures/x-relationships-single/pg.sql
+psql -U postgres 'x-relationships-compound' < fixtures/x-relationships-compound/pg.sql
+psql -U postgres 'x-data-types' < fixtures/x-data-types/pg.sql
 ```
 
-
-## Install
+## SQLite
 
 ```bash
-npm i
+# create database and import schema
+node fixtures/sqlite-import.js x-relationships-single
+node fixtures/sqlite-import.js x-relationships-compound
+node fixtures/sqlite-import.js x-data-types
 ```
 
-The NW.js SDK version is required for DevTools to be available:
+## Tests
+
+Download [NW.js](https://nwjs.io/) - [v0.32.1](https://dl.nwjs.io/v0.32.1/nwjs-sdk-v0.32.1-linux-x64.tar.gz)
 
 ```bash
-export NODE_WEBKIT_VERSION="v0.32.1"
-export PATH="/home/s/software/nwjs-sdk-$NODE_WEBKIT_VERSION-linux-x64:$PATH"
+# extract the folder and add it to your path
+export PATH=$PATH:$HOME/software/nwjs-sdk-v0.32.1-linux-x64:$PATH
 ```
 
+Clone this repo and:
+
 ```bash
-npm install -g node-gyp nw-gyp node-pre-gyp
-npm install -g express-admin
-
-# build sqlite3 for node@0.10.x
-nvm use 10
-npm install -g sqlite3@3.0.5
-
-# build sqlite3 for node@0.12.x
-nvm use 12
-npm install -g sqlite3@3.0.5
-
-# build sqlite3 for nw@0.8.6
-cd express-admin-tests
+# install test dependencies
 npm install
-npm install sqlite3 --build-from-source --runtime=node-webkit --target_arch=x64 --target=0.8.6
-
-# run the tests
+# update absolute paths set inside the config folder
+node path.js
+# run test suite
 nw .
 ```
 
-  [0]: https://github.com/simov/express-admin
+Run a configuration locally:
+
+```bash
+# pick a database and engine and start the admin
+node start.js
+```
+
+## Diagrams
+
+[MySQL Workbench] can be used to preview the [database diagrams].
+
+
+  [Express Admin]: https://github.com/simov/express-admin
+  [MySQL Workbench]: https://www.mysql.com/products/workbench/
+  [database diagrams]: https://github.com/simov/express-admin-examples/blob/master/fixtures/

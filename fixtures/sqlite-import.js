@@ -1,22 +1,27 @@
 
-if (!process.argv[2])
-    return console.log('Specify schema file to import!');
-var dbname = process.argv[2];
+var fs = require('fs')
+var path = require('path')
+var sqlite3 = require('sqlite3').verbose()
 
-var fs = require('fs');
-    path = require('path');
+var name = process.argv[2]
 
-// fixtures/dbname/dbname.sqlite
-if (fs.existsSync(path.join(__dirname, dbname, dbname+'.sqlite')))
-    fs.unlinkSync(path.join(__dirname, dbname, dbname+'.sqlite'));
+if (!name) {
+  console.log('Specify database name to import!')
+  process.exit()
+}
 
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(path.join(__dirname, dbname, dbname+'.sqlite'));
+var dpath = path.resolve(__dirname, name)
+var db = path.join(dpath, `${name}.sqlite`)
+var schema = fs.readFileSync(path.join(dpath, 'sqlite.sql'), 'utf8')
 
-var schema = fs.readFileSync(path.join(__dirname, dbname, 'sqlite.sql'), 'utf8');
+if (fs.existsSync(db)) {
+  fs.unlinkSync(db)
+}
 
-db.serialize(function() {
-    db.exec(schema);
-});
+var connection = new sqlite3.Database(db)
 
-db.close();
+connection.serialize(() => {
+  connection.exec(schema)
+})
+
+connection.close()

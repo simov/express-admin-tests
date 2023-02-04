@@ -1,14 +1,9 @@
 {
-    "sqlite": {
-        "database": "/home/s/projects/express-admin-tests/fixtures/x-data-types/x-data-types.sqlite"
-    },
-    "server": {
-        "port": 3000
-    },
-    "app": {
-        "layouts": true,
-        "themes": true,
-        "languages": true,
-        "upload": "/home/s/projects/express-admin-tests/test/data-types"
-    }
+  "sqlite": {
+    "database": "/home/s/git/express-admin-tests/fixtures/x-data-types/x-data-types.sqlite"
+  },
+  "admin": {
+    "settings": "/home/s/git/express-admin-tests/config/x-data-types/sqlite/settings.json",
+    "upload": "/home/s/git/express-admin-tests/test/data-types"
+  }
 }
